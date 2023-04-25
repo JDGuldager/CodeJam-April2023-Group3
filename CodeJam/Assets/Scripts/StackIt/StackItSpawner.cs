@@ -22,6 +22,7 @@ public class StackItSpawner : MonoBehaviour
         Vector3 temp = transform.position;
         // I have to make z = 0, since it otherwise sets it to 10 for dome weird reason
         temp.z = 0f;
+        temp.x = Random.Range(0, 2);
         box_obj.transform.position = temp;
     }
 }

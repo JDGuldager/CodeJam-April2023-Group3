@@ -7,7 +7,7 @@ public class StackItBox : MonoBehaviour
 {
     private float min_x = -1.4f, max_x = 1.4f;
 
-    private bool canMove;
+    // private bool canMove;
     [SerializeField]private float moveSpeed = 2f;
     private Rigidbody2D myBody;
 
@@ -19,7 +19,7 @@ public class StackItBox : MonoBehaviour
         myBody = GetComponent<Rigidbody2D>();
 
         // REMOVE LATER???
-        myBody.gravityScale = 0f;
+       // myBody.gravityScale = 0f;
     }
     private void Update()
     {
@@ -27,7 +27,7 @@ public class StackItBox : MonoBehaviour
     }
     private void Start()
     {
-        canMove = true;
+       // canMove = true;
         // Left or right spawn ( Will need to remove later ) 
         if (Random.Range(0, 2) > 0)
         {
@@ -38,7 +38,7 @@ public class StackItBox : MonoBehaviour
     }
     void MoveBox()
     {
-        if(canMove)
+      //  if(canMove)
         {
             Vector3 temp = transform.position;
             temp.x += moveSpeed * Time.deltaTime;
@@ -55,7 +55,7 @@ public class StackItBox : MonoBehaviour
     }
     public void DropBox()
     {
-        canMove = false;
+      //  canMove = false;
         myBody.gravityScale = Random.Range(2, 4);
     }
     void Landed()
@@ -63,7 +63,6 @@ public class StackItBox : MonoBehaviour
         if (gameOver) return;
         ignoreCollision = true;
         Invoke("IgnoreTriggerDelay", 2f);
-
         StackItController.Instance.SpawnNewBox();
         StackItController.Instance.MoveCamera();
     }
@@ -74,15 +73,28 @@ public class StackItBox : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D target)
     {
         if (ignoreCollision == true) return;
+
+        //TEST
+        // creates joint
+        FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
+        // sets joint position to point of contact
+        joint.anchor = target.contacts[0].point;
+        // conects the joint to the other object
+        joint.connectedBody = target.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody2D>();
+        // Stops objects from continuing to collide and creating more joints
+        joint.enableCollision = false;
+
         if (target.gameObject.tag == "Platform")
         {
             Invoke("Landed", .5f);
             ignoreCollision = true; 
+            
         }
         if (target.gameObject.tag == "Box")
         {
             Invoke("Landed", .5f);
             ignoreCollision |= true;
+           
         }
     }
     private void OnTriggerEnter2D(Collider2D target)
@@ -101,4 +113,5 @@ public class StackItBox : MonoBehaviour
     {
         ignoreTrigger = true;
     }
+
 }
