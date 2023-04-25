@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StackItBox : MonoBehaviour
 {
-    private float min_x = -1.6f, max_x = 1.6f;
+    private float min_x = -1.4f, max_x = 1.4f;
 
     private bool canMove;
-    [SerializeField]private float moveSpeed = 3f;
+    [SerializeField]private float moveSpeed = 2f;
     private Rigidbody2D myBody;
 
     private bool gameOver;
     private bool ignoreCollision;
     private bool ignoreTrigger;
-
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
@@ -62,7 +62,7 @@ public class StackItBox : MonoBehaviour
     {
         if (gameOver) return;
         ignoreCollision = true;
-        ignoreTrigger = true;
+        Invoke("IgnoreTriggerDelay", 2f);
 
         StackItController.Instance.SpawnNewBox();
         StackItController.Instance.MoveCamera();
@@ -82,7 +82,7 @@ public class StackItBox : MonoBehaviour
         if (target.gameObject.tag == "Box")
         {
             Invoke("Landed", .5f);
-            ignoreCollision = true;
+            ignoreCollision |= true;
         }
     }
     private void OnTriggerEnter2D(Collider2D target)
@@ -93,8 +93,12 @@ public class StackItBox : MonoBehaviour
             CancelInvoke("Landed");
             gameOver = true;
             ignoreTrigger = true;
-
             Invoke("RestartGame", 1f);
         }
+    }
+    // Delay the ignore collision is the box simply touches the top box
+    void IgnoreTriggerDelay()
+    {
+        ignoreTrigger = true;
     }
 }
