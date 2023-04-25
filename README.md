@@ -4,7 +4,7 @@ Members:
 - Jeppe
 - Felix
 - Laurits
-- Halipha
+- Halipha N.
 - Leonora
 - Alina
 - Simon
