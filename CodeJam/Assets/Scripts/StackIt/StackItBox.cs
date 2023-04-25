@@ -14,12 +14,13 @@ public class StackItBox : MonoBehaviour
     private bool gameOver;
     private bool ignoreCollision;
     private bool ignoreTrigger;
+    private bool canMove;
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
 
         // REMOVE LATER???
-       // myBody.gravityScale = 0f;
+      //  myBody.gravityScale = 0f;
     }
     private void Update()
     {
@@ -27,7 +28,7 @@ public class StackItBox : MonoBehaviour
     }
     private void Start()
     {
-       // canMove = true;
+        canMove = true;
         // Left or right spawn ( Will need to remove later ) 
         if (Random.Range(0, 2) > 0)
         {
@@ -38,7 +39,7 @@ public class StackItBox : MonoBehaviour
     }
     void MoveBox()
     {
-      //  if(canMove)
+        if(canMove)
         {
             Vector3 temp = transform.position;
             temp.x += moveSpeed * Time.deltaTime;
@@ -74,27 +75,23 @@ public class StackItBox : MonoBehaviour
     {
         if (ignoreCollision == true) return;
 
-        //TEST
-        // creates joint
-        FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
-        // sets joint position to point of contact
-        joint.anchor = target.contacts[0].point;
-        // conects the joint to the other object
-        joint.connectedBody = target.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody2D>();
-        // Stops objects from continuing to collide and creating more joints
-        joint.enableCollision = false;
+        // MAYBE USE??
+        //  var joint = gameObject.AddComponent<FixedJoint2D>();
+        // joint.connectedBody = target.rigidbody;
+       
 
         if (target.gameObject.tag == "Platform")
         {
             Invoke("Landed", .5f);
-            ignoreCollision = true; 
+            ignoreCollision = true;
+            canMove = false;
             
         }
         if (target.gameObject.tag == "Box")
         {
             Invoke("Landed", .5f);
             ignoreCollision |= true;
-           
+            canMove = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D target)
