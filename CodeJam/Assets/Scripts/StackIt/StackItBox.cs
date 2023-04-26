@@ -12,25 +12,27 @@ public class StackItBox : MonoBehaviour
     // private bool canMove;
     [SerializeField]private float moveSpeed = 2f;
     private Rigidbody2D myBody;
-    private RelativeJoint2D myJoint;
-
+    public GameObject boxObj;
+    public GameObject platformObj;
     private bool gameOver;
     private bool ignoreCollision;
     private bool ignoreTrigger;
     private bool canMove;
+
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
-
         // REMOVE LATER???
       //  myBody.gravityScale = 0f;
     }
     private void Update()
     {
         MoveBox();
+      
     }
     private void Start()
     {
+        boxObj = gameObject;
         canMove = true;
         // Left or right spawn ( Will need to remove later ) 
         if (Random.Range(0, 2) > 0)
@@ -78,9 +80,9 @@ public class StackItBox : MonoBehaviour
     {
         if (ignoreCollision == true) return;
 
-        // MAYBE USE??
-         
-        myBody.transform.parent = target.transform;
+        myBody.freezeRotation = true;
+        myBody.velocity = new Vector3(0, 0,0);
+        moveSpeed = 0;
 
         if (target.gameObject.tag == "Platform")
         {
@@ -88,6 +90,10 @@ public class StackItBox : MonoBehaviour
             ignoreCollision = true;
             canMove = false;
             Invoke("Stick", 2f);
+            // Adds the joint that sticks the packs together
+            var hj = gameObject.AddComponent<HingeJoint2D>();
+            hj.connectedBody = target.rigidbody;
+            myBody.mass = 0.00001f;
         }
         if (target.gameObject.tag == "Box")
         {
@@ -95,7 +101,18 @@ public class StackItBox : MonoBehaviour
             ignoreCollision |= true;
             canMove = false;
             Invoke("Stick", 2f);
+            // Adds the joint that sticks the packs together
+            var hj = gameObject.AddComponent<HingeJoint2D>();
+            hj.connectedBody = target.rigidbody;
+            myBody.mass = 0.00001f;
+            target.gameObject.tag = "UsedBox";
         }
+        if(target.gameObject.tag == "UsedBox")
+        {
+            myBody.freezeRotation = false;
+        }
+        
+        
     }
     private void OnTriggerEnter2D(Collider2D target)
     {

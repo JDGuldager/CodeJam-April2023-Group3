@@ -9,9 +9,18 @@ public class StackItSpawner : MonoBehaviour
     public GameObject boxPrefab;
     [SerializeField] private TextMeshProUGUI tmp;
     private int score = -1;
+    public GameObject sky;
+    private void Start()
+    {
+        sky.SetActive(false);
+    }
     private void Update()
     {
         tmp.text = score.ToString();
+        if (score == 10)
+        {
+            sky.SetActive(true);
+        }
     }
     // Spawns the box and transforms it's position to the position of the boxspawner
     public void SpawnBox()
