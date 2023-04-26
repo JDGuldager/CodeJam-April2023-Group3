@@ -79,8 +79,17 @@ public class StackItBox : MonoBehaviour
         if (ignoreCollision == true) return;
 
         // MAYBE USE??
-         
-        myBody.transform.parent = target.transform;
+
+        // var joint = gameObject.AddComponent<FixedJoint2D>();
+        // joint.connectedBody = target.rigidbody;
+        // joint.enableCollision = false;
+
+        var hj = gameObject.AddComponent<HingeJoint2D>();
+        hj.connectedBody = target.rigidbody;
+        myBody.mass = 0.00001f;
+       
+        myBody.freezeRotation = true;
+        myBody.velocity = new Vector3(0, 0,0);
 
         if (target.gameObject.tag == "Platform")
         {
