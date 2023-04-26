@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class StackItBox : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class StackItBox : MonoBehaviour
     // private bool canMove;
     [SerializeField]private float moveSpeed = 2f;
     private Rigidbody2D myBody;
+    private RelativeJoint2D myJoint;
 
     private bool gameOver;
     private bool ignoreCollision;
@@ -76,22 +78,24 @@ public class StackItBox : MonoBehaviour
         if (ignoreCollision == true) return;
 
         // MAYBE USE??
-        //  var joint = gameObject.AddComponent<FixedJoint2D>();
-        // joint.connectedBody = target.rigidbody;
-       
+         var joint = gameObject.AddComponent<FixedJoint2D>();
+         joint.connectedBody = target.rigidbody;
+         joint.enableCollision = false;
+         
 
         if (target.gameObject.tag == "Platform")
         {
             Invoke("Landed", .5f);
             ignoreCollision = true;
             canMove = false;
-            
+            Invoke("Stick", 2f);
         }
         if (target.gameObject.tag == "Box")
         {
             Invoke("Landed", .5f);
             ignoreCollision |= true;
             canMove = false;
+            Invoke("Stick", 2f);
         }
     }
     private void OnTriggerEnter2D(Collider2D target)
@@ -109,6 +113,11 @@ public class StackItBox : MonoBehaviour
     void IgnoreTriggerDelay()
     {
         ignoreTrigger = true;
+    }
+    void Stick()
+    {
+        //  myJoint = GetComponent<RelativeJoint2D>();
+        myBody.freezeRotation = true;
     }
 
 }
