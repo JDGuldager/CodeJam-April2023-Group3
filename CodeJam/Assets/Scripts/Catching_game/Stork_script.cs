@@ -10,26 +10,23 @@ public class Stork_script : MonoBehaviour
     [SerializeField] Rigidbody2D rbStork;
     public float respawn = -250f;
     public GameObject pandaPrefab;
+    public Panda_script pandaScript;
+ 
+
+    public int numPanda = 1;
+    public int minX = -2;
+    public int maxX = 2;
+    public int y = 0;
+    bool IsPandaSpawned = false;
+
     [SerializeField] private TextMeshProUGUI tmp;
     public int score = -1;
-    // public GameObject BabyPanda;
-    // public int numPanda = 10;
-    // public int minX = -200;
-    // public int maxX = 200;
-    // public int y = -250;
 
     void Start()
     {
-
+        //SpawnPanda();
         rbStork = GetComponent<Rigidbody2D>();
         rbStork.velocity = new Vector2(-speed, 0f); //The stork moves from left to right
-
-        //Panda spawning
-        // for (int i = 0; i < numPanda; i++){
-        //     float x = Random.Range(minX, maxX);
-        //     Instantiate(BabyPanda, new Vector3(x, y, 0f), Quaternion.Euler(0f, 0f, 0f));
-        //     Debug.Log(BabyPanda.transform.position);
-        // }
 
     }
 
@@ -46,9 +43,19 @@ public class Stork_script : MonoBehaviour
         //rbPanda.transform.position = new Vector3(Random.Range(0,10), -50, Random.Range(0,10)) * speed;
 
     }
-    public void SpawnBox()
-    {
-        GameObject storkObj = Instantiate(pandaPrefab);
-        score++;
-    }
+
+    // public void SpawnPanda(){
+    //     score++;
+    //     Debug.Log("test2");
+    //     if (IsPandaSpawned == false || numPanda < 10) { 
+    //         Debug.Log("test");
+    //         score ++;
+    //         float x = Random.Range(minX, maxX);
+    //         Vector3 PanPosition = new Vector3(0, 4f, 0f); //Makes the panda spawn on a random range on x axis
+    //         Instantiate(pandaPrefab, rbStork.transform.position, Quaternion.identity); //Instantiate the prefab at the random loc (This line have been gotten through ChatBot)
+    //         IsPandaSpawned = true;
+    //        //Debug.Log(score);
+    //        // 
+    //     }
+    //    }
 }
