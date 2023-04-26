@@ -8,6 +8,8 @@ TagManager:
   - Box
   - Platform
   - GameOver
+  - Virus
+  - GreenVirus
   layers:
   - Default
   - TransparentFX
@@ -50,4 +52,7 @@ TagManager:
     locked: 0
   - name: forrest
     uniqueID: 604782461
+    locked: 0
+  - name: Light
+    uniqueID: 3013100725
     locked: 0
