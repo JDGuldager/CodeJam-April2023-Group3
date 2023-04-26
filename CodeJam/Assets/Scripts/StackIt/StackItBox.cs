@@ -20,6 +20,7 @@ public class StackItBox : MonoBehaviour
     private bool ignoreTrigger;
     private bool canMove;
     private bool platformHit;
+
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
@@ -30,15 +31,13 @@ public class StackItBox : MonoBehaviour
     private void Update()
     {
         MoveBox();
-        if (platformHit == true)
-        {
-            boxObj.transform.position = platformObj.transform.position + platformObj.transform.TransformDirection(new Vector3(0, 0.5f, -1));
-        }
+
     }
     private void Start()
     {
         boxObj = gameObject;
         platformHit = false;
+      
         canMove = true;
         // Left or right spawn ( Will need to remove later ) 
         if (Random.Range(0, 2) > 0)
@@ -85,25 +84,25 @@ public class StackItBox : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D target)
     {
         if (ignoreCollision == true) return;
-
+        platformObj = target.gameObject;
+        platformHit = true;
         // MAYBE USE??
 
         // var joint = gameObject.AddComponent<FixedJoint2D>();
         // joint.connectedBody = target.rigidbody;
         // joint.enableCollision = false;
-
+       
         var hj = gameObject.AddComponent<HingeJoint2D>();
         hj.connectedBody = target.rigidbody;
         myBody.mass = 0.00001f;
-       
+     
+
         myBody.freezeRotation = true;
         myBody.velocity = new Vector3(0, 0,0);
         moveSpeed = 0;
 
         if (target.gameObject.tag == "Platform")
         {
-            platformObj = target.gameObject;
-            platformHit = true;
             Invoke("Landed", .5f);
             ignoreCollision = true;
             canMove = false;
