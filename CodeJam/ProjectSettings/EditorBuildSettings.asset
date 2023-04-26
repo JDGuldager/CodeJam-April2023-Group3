@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SensorTest.unity
-    guid: 5be8939b09153bf468a8740441d4d624
   - enabled: 1
     path: Assets/Scenes/StackIt.unity
     guid: a39d743d5a77f6744a776daf77357146

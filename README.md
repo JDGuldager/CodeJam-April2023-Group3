@@ -2,7 +2,7 @@
 
 Members:
 - Jeppe Guldager
-- Niels Christian Malte Felix Iuel
+- Niels Christian Malte Felix luel
 - Laurits
 - Halipha N.
 - Leonora
