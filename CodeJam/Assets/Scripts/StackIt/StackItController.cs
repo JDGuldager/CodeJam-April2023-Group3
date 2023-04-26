@@ -20,20 +20,9 @@ public class StackItController : MonoBehaviour
     {
         spawnerScript.SpawnBox();
     }
-    private void Update()
-    {
-        DetectInput();
-    }
 
 
-    // Probably remove later::::
-    void DetectInput()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            currentBox.DropBox();
-        }
-    }
+ 
     public void MoveCamera()
     {
         moveCount++;

@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class StackItBox : MonoBehaviour
 {
-    private float min_x = -1.4f, max_x = 1.4f;
+    private float min_x = -1.8f, max_x = 1.8f;
 
     // private bool canMove;
     [SerializeField]private float moveSpeed = 2f;
@@ -47,11 +47,11 @@ public class StackItBox : MonoBehaviour
             temp.x += moveSpeed * Time.deltaTime;
             if(temp.x > max_x)
             {
-                moveSpeed *= -1f;
+                moveSpeed *= -1.2f;
             }
             else if (temp.x < min_x)
             {
-                moveSpeed *= -1f;
+                moveSpeed *= -1.2f;
             }
             transform.position = temp;
         }
@@ -78,13 +78,16 @@ public class StackItBox : MonoBehaviour
         if (ignoreCollision == true) return;
 
         // MAYBE USE??
+        
          var joint = gameObject.AddComponent<FixedJoint2D>();
          joint.connectedBody = target.rigidbody;
          joint.enableCollision = false;
          
+       // myBody.transform.parent = target.transform;
 
         if (target.gameObject.tag == "Platform")
         {
+            myBody.transform.parent = target.transform;
             Invoke("Landed", .5f);
             ignoreCollision = true;
             canMove = false;
