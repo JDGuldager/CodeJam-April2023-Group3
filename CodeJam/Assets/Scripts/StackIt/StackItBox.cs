@@ -12,33 +12,27 @@ public class StackItBox : MonoBehaviour
     // private bool canMove;
     [SerializeField]private float moveSpeed = 2f;
     private Rigidbody2D myBody;
-    private RelativeJoint2D myJoint;
     public GameObject boxObj;
     public GameObject platformObj;
     private bool gameOver;
     private bool ignoreCollision;
     private bool ignoreTrigger;
     private bool canMove;
-    private bool platformHit;
+
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
-
         // REMOVE LATER???
       //  myBody.gravityScale = 0f;
     }
     private void Update()
     {
         MoveBox();
-        if (platformHit == true)
-        {
-            boxObj.transform.position = platformObj.transform.position + platformObj.transform.TransformDirection(new Vector3(0, 0.5f, -1));
-        }
+      
     }
     private void Start()
     {
         boxObj = gameObject;
-        platformHit = false;
         canMove = true;
         // Left or right spawn ( Will need to remove later ) 
         if (Random.Range(0, 2) > 0)
@@ -86,28 +80,22 @@ public class StackItBox : MonoBehaviour
     {
         if (ignoreCollision == true) return;
 
-        // MAYBE USE??
-
-        // var joint = gameObject.AddComponent<FixedJoint2D>();
-        // joint.connectedBody = target.rigidbody;
-        // joint.enableCollision = false;
-
-        var hj = gameObject.AddComponent<HingeJoint2D>();
-        hj.connectedBody = target.rigidbody;
-        myBody.mass = 0.00001f;
-       
         myBody.freezeRotation = true;
         myBody.velocity = new Vector3(0, 0,0);
         moveSpeed = 0;
 
         if (target.gameObject.tag == "Platform")
         {
-            platformObj = target.gameObject;
-            platformHit = true;
             Invoke("Landed", .5f);
             ignoreCollision = true;
             canMove = false;
             Invoke("Stick", 2f);
+            // Adds the joint that sticks the packs together
+            var hj = gameObject.AddComponent<HingeJoint2D>();
+            hj.connectedBody = target.rigidbody;
+            myBody.mass = 0.00001f;
+            target.gameObject.tag = "UsedPlatform";
+
         }
         if (target.gameObject.tag == "Box")
         {
@@ -115,7 +103,14 @@ public class StackItBox : MonoBehaviour
             ignoreCollision |= true;
             canMove = false;
             Invoke("Stick", 2f);
+            // Adds the joint that sticks the packs together
+            var hj = gameObject.AddComponent<HingeJoint2D>();
+            hj.connectedBody = target.rigidbody;
+            myBody.mass = 0.00001f;
+            target.gameObject.tag = "UsedBox";
         }
+        
+        
     }
     private void OnTriggerEnter2D(Collider2D target)
     {
@@ -138,5 +133,4 @@ public class StackItBox : MonoBehaviour
         //  myJoint = GetComponent<RelativeJoint2D>();
         myBody.freezeRotation = true;
     }
-
 }
