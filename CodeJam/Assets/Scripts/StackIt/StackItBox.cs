@@ -94,6 +94,8 @@ public class StackItBox : MonoBehaviour
             var hj = gameObject.AddComponent<HingeJoint2D>();
             hj.connectedBody = target.rigidbody;
             myBody.mass = 0.00001f;
+            target.gameObject.tag = "UsedPlatform";
+
         }
         if (target.gameObject.tag == "Box")
         {
@@ -106,10 +108,6 @@ public class StackItBox : MonoBehaviour
             hj.connectedBody = target.rigidbody;
             myBody.mass = 0.00001f;
             target.gameObject.tag = "UsedBox";
-        }
-        if(target.gameObject.tag == "UsedBox")
-        {
-            myBody.freezeRotation = false;
         }
         
         
@@ -135,5 +133,4 @@ public class StackItBox : MonoBehaviour
         //  myJoint = GetComponent<RelativeJoint2D>();
         myBody.freezeRotation = true;
     }
-
 }

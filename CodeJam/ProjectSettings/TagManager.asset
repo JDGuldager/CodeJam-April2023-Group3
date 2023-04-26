@@ -10,6 +10,7 @@ TagManager:
   - GameOver
   - Needle
   - UsedBox
+  - UsedPlatform
   layers:
   - Default
   - TransparentFX
