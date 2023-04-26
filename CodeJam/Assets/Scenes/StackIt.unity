@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 1695815918}
   - component: {fileID: 1695815919}
   - component: {fileID: 1695815920}
+  - component: {fileID: 1695815921}
   m_Layer: 0
   m_Name: Square
   m_TagString: Platform
@@ -911,3 +912,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
+--- !u!255 &1695815921
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695815914}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: -4}
+  m_DampingRatio: 0
+  m_Frequency: 0
