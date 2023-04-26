@@ -13,11 +13,13 @@ public class StackItBox : MonoBehaviour
     [SerializeField]private float moveSpeed = 2f;
     private Rigidbody2D myBody;
     private RelativeJoint2D myJoint;
-
+    public GameObject boxObj;
+    public GameObject platformObj;
     private bool gameOver;
     private bool ignoreCollision;
     private bool ignoreTrigger;
     private bool canMove;
+    private bool platformHit;
     private void Awake()
     {
         myBody = GetComponent<Rigidbody2D>();
@@ -28,9 +30,15 @@ public class StackItBox : MonoBehaviour
     private void Update()
     {
         MoveBox();
+        if (platformHit == true)
+        {
+            boxObj.transform.position = platformObj.transform.position + platformObj.transform.TransformDirection(new Vector3(0, 0.5f, -1));
+        }
     }
     private void Start()
     {
+        boxObj = gameObject;
+        platformHit = false;
         canMove = true;
         // Left or right spawn ( Will need to remove later ) 
         if (Random.Range(0, 2) > 0)
@@ -90,9 +98,12 @@ public class StackItBox : MonoBehaviour
        
         myBody.freezeRotation = true;
         myBody.velocity = new Vector3(0, 0,0);
+        moveSpeed = 0;
 
         if (target.gameObject.tag == "Platform")
         {
+            platformObj = target.gameObject;
+            platformHit = true;
             Invoke("Landed", .5f);
             ignoreCollision = true;
             canMove = false;
