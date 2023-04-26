@@ -9,6 +9,8 @@ TagManager:
   - Platform
   - GameOver
   - Needle
+  - Bacteria
+  - Projectile
   layers:
   - Default
   - TransparentFX
