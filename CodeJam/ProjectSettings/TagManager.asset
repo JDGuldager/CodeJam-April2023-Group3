@@ -8,8 +8,12 @@ TagManager:
   - Box
   - Platform
   - GameOver
+<<<<<<< HEAD
+  - Obstacle
+=======
   - Virus
   - GreenVirus
+>>>>>>> 8b4932ae946546921a8895235b22784167d414ba
   layers:
   - Default
   - TransparentFX
