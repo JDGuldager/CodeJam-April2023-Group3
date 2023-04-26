@@ -22,7 +22,7 @@ public class SensorControllerX : MonoBehaviour
     void Update()
     {
         dx = Input.acceleration.x * moveSpeed;
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -Screen.width / 2f + 0.5f, Screen.width / 2f - 0.5f), transform.position.y);
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -2.5f, 2.5f), transform.position.y);
 
         dy = Input.acceleration.y * moveSpeed;
     }
