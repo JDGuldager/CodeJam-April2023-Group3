@@ -9,17 +9,15 @@ public class Panda_script : MonoBehaviour
 {
     
     public GameObject PandaPreFab;
-   public GameObject spawnPos;
+    public GameObject spawnPos;
     public Stork_script storkScript;
-    //[SerializeField] private TextMeshProUGUI tmp;
-[SerializeField] private TextMeshProUGUI tmp;
-    public int numPanda = 1;
-    public int minX = -2;
-    public int maxX = 2;
+    [SerializeField] private TextMeshProUGUI tmp;
+    //private int minX = -2;
+   // private int maxX = 2;
     public int y = 0;
     bool IsPandaSpawned = false;
 
-    //Vector3 PanPosition = new Vector3(2.5f, 4f, 0f); //Makes the panda spawn on a random range on x axis
+    public AudioClip soundsound;
 
     void Start()
     {
@@ -36,30 +34,28 @@ public class Panda_script : MonoBehaviour
     
     private void SpawnPanda(){
          if (IsPandaSpawned == false || spawnPos.transform.position.y < 3.9f) { 
-            numPanda ++;
-            float x = Random.Range(minX, maxX);
+            //float x = Random.Range(minX, maxX); //The range the 
             //Vector3 PanPosition = new Vector3(2.5f, 4f, 0f); 
-            Instantiate(PandaPreFab, spawnPos.transform.position, Quaternion.identity); //Instantiate the prefab at the random loc (This line have been gotten through ChatBot)
+            Instantiate(PandaPreFab, spawnPos.transform.position, Quaternion.identity); //Instantiate the prefab at the random loc (This line was originally from ChatBot, but changed since)
             IsPandaSpawned = true;
-            
-
-          
-           // 
+ 
         }
         
     }
      private void OnTriggerEnter2D (Collider2D target){
-        //storkScript.SpawnPanda(); //Spawn new when collided
-        SpawnPanda();
-        Destroy(PandaPreFab);
+        SpawnPanda(); //Spawn new when collided
+        Destroy(PandaPreFab); //Destroy the Prefab 
         if(target.gameObject.tag == "Bed")
         {
             Debug.Log("Registered" + storkScript.score);
-            storkScript.score++;
-            tmp.text = storkScript.score.ToString();
+            storkScript.score++; //The score goes up by one, each time they collide
+            tmp.text = storkScript.score.ToString(); //And update the score on screen
+            SoundManager.instance.PlaySound(soundsound);
+        } else {
+            SceneManager.LoadScene("GameOver");;
         }
         if(storkScript.score > 10) {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenu"); //If the score is 10, change scene
         }
         
     }
