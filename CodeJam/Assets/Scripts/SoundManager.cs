@@ -7,6 +7,7 @@ public static class SoundManager
     public enum Sound
     {
         VirusFound,
+        Waterdroplet,
 
     }
     public static void PlaySound(Sound sound)
@@ -26,6 +27,7 @@ public static class SoundManager
                 return soundAudioClip.audioClip;
             }
         }
+        Debug.LogError("Sound" + sound + "not found!");
         return null;
     }
 

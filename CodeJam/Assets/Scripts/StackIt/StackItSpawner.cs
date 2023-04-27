@@ -17,6 +17,7 @@ public class StackItSpawner : MonoBehaviour
     private void Update()
     {
         tmp.text = score.ToString();
+
         if (score == 10)
         {
             sky.SetActive(true);

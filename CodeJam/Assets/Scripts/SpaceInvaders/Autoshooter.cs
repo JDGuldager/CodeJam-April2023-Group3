@@ -15,6 +15,7 @@ public class Autoshooter : MonoBehaviour
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
             nextFireTime = Time.time + fireRate;
+            SoundManager.PlaySound(SoundManager.Sound.Waterdroplet);
         }
     }
 }
