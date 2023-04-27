@@ -25,7 +25,7 @@ public class StackItSpawner : MonoBehaviour
         }
         if (score == 10)
         {
-            timerScript.NextScene();
+            Timer.NextScene();
         }
     }
     // Spawns the box and transforms it's position to the position of the boxspawner

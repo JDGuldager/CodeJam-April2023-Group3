@@ -43,6 +43,6 @@ public class StackItController : MonoBehaviour
     // Might need to remove this::
     public void RestartGame()
     {
-        timerScript.GameOver();
+      Timer.GameOver();
     }
 }

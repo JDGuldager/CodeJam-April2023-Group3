@@ -5,17 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - Undefined
-  - Obstacle
-  - Destroyer
-  - GameOver
-  - Destroy
+  - Bacteria
+  - DirtyObject
+  - Virus
+  - GreenVirus
+  - Light
   - Platform
+  - UsedPlatform
   - Box
   - UsedBox
-  - UsedPlatform
-  - Bacteria
-  - Projectile
-  - Virus
+  - Destroyer
+  - Water
+  - UI
+  - Bed
   layers:
   - Default
   - TransparentFX
@@ -50,12 +52,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: bagerst
-    uniqueID: 885909891
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: forrest
-    uniqueID: 3617342379
     locked: 0

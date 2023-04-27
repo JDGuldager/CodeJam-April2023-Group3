@@ -7,7 +7,6 @@ public class BacteriaSpawnerScript : MonoBehaviour
 public GameObject enemyPrefab;
 public float spawnInterval = 2.0f;
 private float spawnTimer = 0.0f;
-public Timer time;
 
     void Update()
 {
@@ -28,7 +27,7 @@ public void CheckIfWinOrLose()
 {
         if (Timer.timerTillNextScene <= 0f)
         {
-            time.NextScene();
+            Timer.NextScene();
         }
     }
 }
