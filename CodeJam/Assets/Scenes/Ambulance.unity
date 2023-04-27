@@ -1285,7 +1285,7 @@ RectTransform:
   m_GameObject: {fileID: 1821503813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.9357, y: 2.9357, z: 2.9357}
+  m_LocalScale: {x: 4.232986, y: 4.232986, z: 4.232986}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1298638315}
@@ -1293,7 +1293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.11, y: -3.1793}
+  m_AnchoredPosition: {x: 5.7341, y: -3.12}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1821503815
@@ -1316,10 +1316,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Example
+  m_text: "DREJ SK\xC6RMEN TIL H\xD8JRE OG VENSTRE FOR AT UNDG\xC5 FORHINDRINGERNE"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5a0f4866e36b770448e66c4b9ed05a94, type: 2}
-  m_sharedMaterial: {fileID: 7603290356614442587, guid: 5a0f4866e36b770448e66c4b9ed05a94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1408,7 +1408,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7603290356614442587, guid: 5a0f4866e36b770448e66c4b9ed05a94, type: 2}
+  - {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

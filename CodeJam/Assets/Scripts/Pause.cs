@@ -6,9 +6,11 @@ public class Pause : MonoBehaviour
 {
    // private SpriteRenderer sprite;
     private GameObject obj;
+    public GameObject canvas;
     // Start is called before the first frame update
     void Start()
     {
+        canvas.gameObject.SetActive(false);
        // sprite = GetComponent<SpriteRenderer>();
         obj = GetComponent<GameObject>();
         Time.timeScale = 0;
@@ -19,6 +21,7 @@ public class Pause : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            canvas.gameObject.SetActive(true);
             Time.timeScale = 1;
            // sprite.enabled = false;
             gameObject.SetActive(false);
