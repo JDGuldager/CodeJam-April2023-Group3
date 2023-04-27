@@ -6,9 +6,9 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Stork_script : MonoBehaviour
 {
-    [SerializeField] float speed = 300f; //The speed
+    [SerializeField] float speed = 3f; //The speed
     [SerializeField] public Rigidbody2D rbStork;
-    public float respawn = -2.5f;
+    public float respawn = -3f;
     public GameObject pandaPrefab;
     public Panda_script pandaScript;
  

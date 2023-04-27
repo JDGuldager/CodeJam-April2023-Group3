@@ -9,13 +9,15 @@ public class Autoshooter : MonoBehaviour
 
     private float nextFireTime = 0.0f;
 
+    public AudioClip sound;
+
     void Update()
     {
         if (Time.time > nextFireTime)
         {
             GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
             nextFireTime = Time.time + fireRate;
-            SoundManager.PlaySound(SoundManager.Sound.Waterdroplet);
+            SoundManager.instance.PlaySound(sound);
         }
     }
 }
