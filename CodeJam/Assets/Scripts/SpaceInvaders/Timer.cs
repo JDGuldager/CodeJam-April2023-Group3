@@ -37,6 +37,7 @@ public class Timer : MonoBehaviour
     public static void NextScene()
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        DataHolder.totalScore++;
     }
 
     public static void GameOver()
