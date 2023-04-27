@@ -13,6 +13,6 @@ public class GameOverBoxScript : MonoBehaviour
 
     private void RestartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        Timer.GameOver();
     }
 }
