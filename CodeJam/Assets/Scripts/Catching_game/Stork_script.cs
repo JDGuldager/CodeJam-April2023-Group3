@@ -12,7 +12,6 @@ public class Stork_script : MonoBehaviour
     public GameObject pandaPrefab;
     public Panda_script pandaScript;
  
-
     public int numPanda = 1;
     public int minX = -2;
     public int maxX = 2;
@@ -27,7 +26,6 @@ public class Stork_script : MonoBehaviour
         //SpawnPanda();
         rbStork = GetComponent<Rigidbody2D>();
         rbStork.velocity = new Vector2(-speed, 0f); //The stork moves from left to right
-
     }
 
 
