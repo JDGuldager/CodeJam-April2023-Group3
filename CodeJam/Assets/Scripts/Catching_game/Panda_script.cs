@@ -11,7 +11,7 @@ public class Panda_script : MonoBehaviour
    public GameObject spawnPos;
     public Stork_script storkScript;
     //[SerializeField] private TextMeshProUGUI tmp;
-
+[SerializeField] private TextMeshProUGUI tmp;
     public int numPanda = 1;
     public int minX = -2;
     public int maxX = 2;
@@ -47,11 +47,17 @@ public class Panda_script : MonoBehaviour
         }
         
     }
-     private void OnTriggerEnter2D (Collider2D collision){
+     private void OnTriggerEnter2D (Collider2D target){
         //storkScript.SpawnPanda(); //Spawn new when collided
         SpawnPanda();
-        storkScript.score++;
         Destroy(PandaPreFab);
+        if(target.gameObject.tag == "Bed")
+        {
+            Debug.Log("Registered" + storkScript.score);
+            storkScript.score++;
+             tmp.text = storkScript.score.ToString();
+        }
+        
         
     }
 }

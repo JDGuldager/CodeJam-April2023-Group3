@@ -18,8 +18,8 @@ public class Stork_script : MonoBehaviour
     public int y = 0;
    // bool IsPandaSpawned = false;
 
-    [SerializeField] private TextMeshProUGUI tmp;
-    public int score = -1;
+   // [SerializeField] private TextMeshProUGUI tmp;
+    public int score = 0;
 
     Vector3 PanPosition = new Vector3(2.2f, 4f, 0f); 
 
@@ -34,11 +34,8 @@ public class Stork_script : MonoBehaviour
 
     void FixedUpdate()
     {
-           Debug.Log(Time.deltaTime);
-            if(Time.frameCount < -10){
-            Destroy(pandaPrefab);
-        }  
-        tmp.text = score.ToString();
+   
+       // tmp.text = score.ToString();
         if (respawn > rbStork.transform.position.x)
         {
             Vector2 newPos = new Vector2(respawn + 4f, rbStork.transform.position.y);
