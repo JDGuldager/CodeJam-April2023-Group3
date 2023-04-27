@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-            Invoke("NextScene");
+            Invoke("NextScene", 0f);
             }
 
         DisplayTime();
