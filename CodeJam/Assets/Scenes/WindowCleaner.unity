@@ -3665,6 +3665,7 @@ MonoBehaviour:
   changeScene: {fileID: 322405344}
   m_Animator: {fileID: 330861398}
   m_Soap: 0
+  blopsound: {fileID: 8300000, guid: 379165f9cc85efd43aa2820c87e78777, type: 3}
 --- !u!1 &335142515
 GameObject:
   m_ObjectHideFlags: 0
