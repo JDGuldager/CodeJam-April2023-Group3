@@ -10,11 +10,11 @@ public class PlayerBehavior : MonoBehaviour
     {
         if (col.gameObject.name == "Venstre")
         {
-            ambulance.transform.position = new Vector3(1, -3, 0);
+            ambulance.transform.position = new Vector3(-1, -3, 0);
         }
         else if (col.gameObject.name == "Højre")
         {
-            ambulance.transform.position = new Vector3(-1, -3, 0);
+            ambulance.transform.position = new Vector3(1, -3, 0);
         }
     }
 

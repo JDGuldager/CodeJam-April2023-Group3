@@ -11,6 +11,7 @@ public class ObstacleBehavior : MonoBehaviour
     private Rigidbody2D rb;
     private float speed = -10f;
     
+    
 
 
 
@@ -24,9 +25,10 @@ public class ObstacleBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Destroyer"))
-            //if (other.gameObject.tag == "Destroyer")
+            
         {
             Destroy(gameObject);
+            
         }
         else if (other.gameObject.CompareTag("Player"))
         {
