@@ -12,14 +12,10 @@ TagManager:
   - Platform
   - Box
   - UsedBox
-<<<<<<< Updated upstream
   - UsedPlatform
-=======
+  - Bacteria
+  - Projectile
   - Virus
-  - GreenVirus
-  - Light
-  - DirtyObject
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
