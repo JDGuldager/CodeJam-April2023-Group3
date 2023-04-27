@@ -155,6 +155,7 @@ MonoBehaviour:
   spawnerScript: {fileID: 1604639166}
   currentBox: {fileID: 0}
   cameraScript: {fileID: 1452977867}
+  timerScript: {fileID: 0}
 --- !u!4 &396862204
 Transform:
   m_ObjectHideFlags: 0
@@ -1152,6 +1153,7 @@ MonoBehaviour:
   boxPrefab: {fileID: 5626529401941779091, guid: 1817302e13e28024da816a84f5ec7f99, type: 3}
   tmp: {fileID: 1631366450}
   sky: {fileID: 1080323781}
+  timerScript: {fileID: 0}
 --- !u!1 &1613186083
 GameObject:
   m_ObjectHideFlags: 0

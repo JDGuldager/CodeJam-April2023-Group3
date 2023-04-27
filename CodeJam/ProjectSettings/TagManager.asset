@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Undefined
+  - Bacteria
+  - DirtyObject
+  - Virus
+  - GreenVirus
+  - Light
+  - Platform
+  - UsedPlatform
+  - Box
+  - UsedBox
+  - Destroyer
+  - Water
+  - UI
+  - Bed
   layers:
   - Default
   - TransparentFX
