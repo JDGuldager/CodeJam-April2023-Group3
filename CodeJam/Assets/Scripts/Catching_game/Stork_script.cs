@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.SceneManagement;
+
 
 public class Stork_script : MonoBehaviour
 {
@@ -41,6 +43,7 @@ public class Stork_script : MonoBehaviour
             rbStork.transform.position = newPos;
         }
 
+        
   
         //rbPanda.transform.position = new Vector3(Random.Range(0,10), -50, Random.Range(0,10)) * speed;
 
