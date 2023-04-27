@@ -8,26 +8,34 @@ public class Swipe : MonoBehaviour
     public List<GameObject> patients;
     public GameObject firstPatient;
     public float swipeMinimum = 50f;
+    public Rigidbody2D rb;
 
     public int currentPatientIndex = 0;
     private Vector2 startPosition;  //Start position of mouse
     private Vector2 endPosition;    //End position of mouse
 
-    Vector2 patientPosition;    
+    Vector2 patientPosition;
     public GameObject leftSide, rightSide;
     public float speed = 10f;
+
+    public AudioClip rockMeHeavy;
 
     // Start is called before the first frame update
     void Start()
     {
         // Set the first patient as the current patient
         firstPatient = patients[currentPatientIndex];
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         SwipeMechanism();
+        if(Timer.timerTillNextScene <= 0f)
+		{
+            Timer.GameOver();
+		}
     }
 
     IEnumerator MovePatient(Vector3 start, Vector3 target)
@@ -36,13 +44,13 @@ public class Swipe : MonoBehaviour
         float duration = distance / speed;  //How long it takes to cover the distance
         float startTime = Time.time;    //The time in the start of the frame
 
-            while (Time.time < startTime + duration)
-            {
-                float interpolationRatio = (Time.time - startTime) / duration;  //Current time divided by total time
-                firstPatient.transform.position = Vector3.Lerp(start, target, interpolationRatio); // Cooler version of MoveTowards  
-                
-                yield return null;
-            }
+        while (Time.time < startTime + duration)
+        {
+            float interpolationRatio = (Time.time - startTime) / duration;  //Current time divided by total time
+            firstPatient.transform.position = Vector3.Lerp(start, target, interpolationRatio); // Cooler version of MoveTowards  
+
+            yield return null;
+        }
 
         //Travel destination reached
         CheckoutPatient(target.normalized.x);
@@ -57,37 +65,50 @@ public class Swipe : MonoBehaviour
     }
 
     public void CheckoutPatient(float endLocation)
-	{
+    {
         switch (firstPatient.GetComponent<assignCategories>().objectCategory)
-		{
+        {
             case assignCategories.Category.Injured:
                 if (endLocation < 0)
                 {
+                    SoundManager.instance.PlaySound(rockMeHeavy);
                     Debug.Log("Correct, I'm Injured");
-                    
-                } else if (endLocation > 0)
+                    if (currentPatientIndex >= patients.Count-1) 
+                    {
+                        Timer.NextScene();
+                    }
+
+                }
+                else if (endLocation > 0)
                 {
                     Debug.Log("Incorrect, I'm Injured");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0); ;
+                    Timer.GameOver();
                 }
                 break;
             case assignCategories.Category.Recovered:
                 if (endLocation < 0)
                 {
                     Debug.Log("Incorrect, I'm Recovered");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0); ;
-                } else if (endLocation > 0)
-                {
-                    Debug.Log("Correct, I'm Recovered");
+                    Timer.GameOver();
+
                 }
+                else if (endLocation > 0)
+                {
+                    SoundManager.instance.PlaySound(rockMeHeavy);
+                    Debug.Log("Correct, I'm Recovered");
+                    if (currentPatientIndex >= patients.Count - 1)
+                    {
+                        Timer.NextScene();
+                    }
+                }
+                
+
                 break;
         }
-	}
+    }
 
     void SwipeMechanism()
-	{
-        if (currentPatientIndex <= patients.Count - 1)
-        {
+    {
             // Check if the current patient is the first patient in the list
             if (patients[currentPatientIndex] == firstPatient)
             {
@@ -132,9 +153,19 @@ public class Swipe : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0); 
-        }
+    
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+            if (col.gameObject.name == "Venstre")
+            {
+                StartCoroutine(MovePatient(patientPosition, leftSide.transform.position));
+                rb.transform.position = new Vector3(0, rb.transform.position.y, rb.transform.position.z);
+            }
+            else if (col.gameObject.name == "Højre")
+            {
+                StartCoroutine(MovePatient(patientPosition, rightSide.GetComponent<Transform>().position));
+                rb.transform.position = new Vector3(0, rb.transform.position.y, rb.transform.position.z);
+            }
+        } 
     }
-}

@@ -7,7 +7,7 @@ public class StackItSensor : MonoBehaviour
     Rigidbody2D rb;
     float dx;
     float dy;
-    private float min_x = -1.55f, max_x = 1.55f;
+    public float min_x = -1.55f, max_x = 1.55f;
     [SerializeField]
     float moveSpeed = 20f;
 
