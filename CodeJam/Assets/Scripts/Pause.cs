@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    private SpriteRenderer sprite;
+   // private SpriteRenderer sprite;
+    private GameObject obj;
     // Start is called before the first frame update
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+       // sprite = GetComponent<SpriteRenderer>();
+        obj = GetComponent<GameObject>();
         Time.timeScale = 0;
     }
 
@@ -18,7 +20,8 @@ public class Pause : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             Time.timeScale = 1;
-            sprite.enabled = false;
+           // sprite.enabled = false;
+            gameObject.SetActive(false);
         }
     }
 }
