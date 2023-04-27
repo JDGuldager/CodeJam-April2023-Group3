@@ -3665,6 +3665,7 @@ MonoBehaviour:
   changeScene: {fileID: 322405344}
   m_Animator: {fileID: 330861398}
   m_Soap: 0
+  blopsound: {fileID: 8300000, guid: 379165f9cc85efd43aa2820c87e78777, type: 3}
 --- !u!1 &335142515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6190,6 +6191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817806fbba0c0784d81d7fbf3b27f571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 981509018}
 --- !u!4 &598069161
 Transform:
   m_ObjectHideFlags: 0
@@ -22255,8 +22257,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4282601705
+  m_fontColor: {r: 0.9137255, g: 0.3137255, b: 0.2627451, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
