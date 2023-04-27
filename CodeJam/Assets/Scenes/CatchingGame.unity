@@ -661,7 +661,7 @@ MonoBehaviour:
   minX: -2
   maxX: 2
   y: 0
-  score: -1
+  score: 0
 --- !u!50 &803414186
 Rigidbody2D:
   serializedVersion: 4
