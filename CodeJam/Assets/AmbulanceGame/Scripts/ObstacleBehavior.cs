@@ -30,7 +30,7 @@ public class ObstacleBehavior : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         }
     }
 }

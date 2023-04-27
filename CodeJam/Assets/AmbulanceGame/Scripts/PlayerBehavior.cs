@@ -3,22 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*public class PlayerBehavior : MonoBehaviour
+public class PlayerBehavior : MonoBehaviour
 {
-    private RigidbodyConstraints rbc;
-    
+    public GameObject ambulance;
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.name == "Venstre")
+        {
+            ambulance.transform.position = new Vector3(1, -3, 0);
+        }
+        else if (col.gameObject.name == "Højre")
+        {
+            ambulance.transform.position = new Vector3(-1, -3, 0);
+        }
+    }
+
 
     private void Start()
     {
-        rbc = GetComponent<RigidbodyConstraints>();
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-            rbc = RigidbodyConstraints.FreezePosition;
-        }
-    }
+   
 }
-*/
