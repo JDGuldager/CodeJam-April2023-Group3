@@ -10,7 +10,9 @@ public class StackItSpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmp;
     private int score = -1;
     public GameObject sky;
-    public Timer timerScript;
+
+    public AudioClip stackSound;
+
     private void Start()
     {
         sky.SetActive(false);
@@ -38,5 +40,7 @@ public class StackItSpawner : MonoBehaviour
         temp.z = 0f;
         temp.x = Random.Range(0, 2);
         box_obj.transform.position = temp;
+
+        SoundManager.instance.PlaySound(stackSound);
     }
 }

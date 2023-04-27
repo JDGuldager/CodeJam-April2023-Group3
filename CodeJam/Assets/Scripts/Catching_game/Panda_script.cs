@@ -52,9 +52,9 @@ public class Panda_script : MonoBehaviour
             tmp.text = storkScript.score.ToString(); //And update the score on screen
             SoundManager.instance.PlaySound(soundsound);
         } else {
-           //Timer.GameOver();
+           Timer.GameOver();
         }
-        if(storkScript.score > 10) {
+        if(storkScript.score >= 10) {
             Timer.NextScene(); //If the score is 10, change scene
         }
         
