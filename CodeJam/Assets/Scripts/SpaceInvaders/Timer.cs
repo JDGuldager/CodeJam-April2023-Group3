@@ -53,7 +53,7 @@ void DisplayTime()
 {
 float minutes = Mathf.FloorToInt(timerTillNextScene / 60);
 float seconds = Mathf.FloorToInt(timerTillNextScene % 60);
-timeLeft.text = string.Format("TIME LEFT: {0:00}:{1:00}", minutes, seconds);
+timeLeft.text = string.Format("TID TILBAGE: {0:00}:{1:00}", minutes, seconds);
 }
 
 }
