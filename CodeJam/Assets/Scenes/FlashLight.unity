@@ -1639,7 +1639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "VIRUS \nFUNDET: "
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd4635eb1528e414e806809ea544c4b1, type: 2}
   m_sharedMaterial: {fileID: -3979170063960417862, guid: dd4635eb1528e414e806809ea544c4b1, type: 2}
@@ -1828,7 +1828,6 @@ GameObject:
   - component: {fileID: 1790808236}
   - component: {fileID: 1790808235}
   - component: {fileID: 1790808237}
-  - component: {fileID: 1790808238}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -2004,7 +2003,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &1790808237
 MonoBehaviour:
@@ -2019,21 +2018,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
---- !u!114 &1790808238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790808230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.7647059}
-  m_EffectDistance: {x: 10, y: 10}
-  m_UseGraphicAlpha: 1
 --- !u!1 &2108631476
 GameObject:
   m_ObjectHideFlags: 0
