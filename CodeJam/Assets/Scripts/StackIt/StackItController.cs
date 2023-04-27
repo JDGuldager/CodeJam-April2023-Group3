@@ -10,7 +10,6 @@ public class StackItController : MonoBehaviour
     public StackItBox currentBox;
     public CameraFollow cameraScript;
     private int moveCount;
-    public Timer timerScript;
     private void Awake()
     {
         // watch awesome tuts singleton tutorial
@@ -43,6 +42,6 @@ public class StackItController : MonoBehaviour
     // Might need to remove this::
     public void RestartGame()
     {
-        timerScript.GameOver();
+        Timer.GameOver();
     }
 }
