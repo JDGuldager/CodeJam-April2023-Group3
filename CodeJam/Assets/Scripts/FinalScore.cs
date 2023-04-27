@@ -16,6 +16,6 @@ public class FinalScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tmp.text = DataHolder.totalScore.ToString();
+        tmp.text = ("SCORE: " + DataHolder.totalScore.ToString());
     }
 }
