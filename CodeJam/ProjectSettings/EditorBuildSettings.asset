@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SensorTest.unity
-    guid: 5be8939b09153bf468a8740441d4d624
+    path: Assets/Scenes/WindowCleaner.unity
+    guid: 0c9550c11c2ec0146b013de5c38fc2c7
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: bd38a8afe1502b349bcecfa3684ad50c, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: a1f3bb45d0e72404d9bd525a74c51905, type: 2}
