@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CatchingGame.unity
+    guid: 807c0ca7f5202e342b09d18791cc9a4f
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
@@ -20,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ambulance.unity
     guid: a67ad8282acde984f852251cd6997e3f
-  - enabled: 1
-    path: Assets/Scenes/CatchingGame.unity
-    guid: 807c0ca7f5202e342b09d18791cc9a4f
   - enabled: 1
     path: Assets/Scenes/SortingGame.unity
     guid: 6a09f7c4257d627499993187023ba615
