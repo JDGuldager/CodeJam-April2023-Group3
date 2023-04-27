@@ -25,6 +25,8 @@ public class SliderController : MonoBehaviour
         {
             StartCoroutine(AnimationMethod());
         }
+
+        CheckIfWinOrLose();
     }
     IEnumerator AnimationMethod()
     {
@@ -45,7 +47,12 @@ public class SliderController : MonoBehaviour
     {
         if (slider.value == 212)
         {
-            time.con = true;
+            time.NextScene();
+        }
+
+        if (Timer.timerTillNextScene <= 0f)
+        {
+            time.GameOver();
         }
     }
 }

@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timeLeft;
     public bool timerIsRunning = false;
-    public float timerTillNextScene = 30f;
+    public static float timerTillNextScene = 30f;
     //public bool conditionHasBeenMet = true;
 
     public bool con = false;
@@ -30,30 +30,25 @@ public class Timer : MonoBehaviour
             {
                 timerTillNextScene -= Time.deltaTime;
             }
-            else
-            {
-            Invoke("NextScene", 0f);
-            }
 
         DisplayTime();
     }
 
-public void NextScene(int SceneNum)
-{
-        if (con == true)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else
-        {
-            SceneManager.LoadScene("GameOver");
-        }
-}
-void DisplayTime()
-{
-float minutes = Mathf.FloorToInt(timerTillNextScene / 60);
-float seconds = Mathf.FloorToInt(timerTillNextScene % 60);
-timeLeft.text = string.Format("TID TILBAGE: {0:00}:{1:00}", minutes, seconds);
-}
+    public void NextScene()
+    {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
-}
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    void DisplayTime()
+    {
+    float minutes = Mathf.FloorToInt(timerTillNextScene / 60);
+    float seconds = Mathf.FloorToInt(timerTillNextScene % 60);
+    timeLeft.text = string.Format("TID TILBAGE: {0:00}:{1:00}", minutes, seconds);
+    }
+
+    }
