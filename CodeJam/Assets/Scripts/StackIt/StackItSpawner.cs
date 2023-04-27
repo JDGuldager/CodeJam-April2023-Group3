@@ -10,6 +10,7 @@ public class StackItSpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmp;
     private int score = -1;
     public GameObject sky;
+    public Timer timerScript;
     private void Start()
     {
         sky.SetActive(false);
@@ -18,9 +19,13 @@ public class StackItSpawner : MonoBehaviour
     {
         tmp.text = score.ToString();
 
-        if (score == 10)
+        if (score == 5)
         {
             sky.SetActive(true);
+        }
+        if (score == 10)
+        {
+            timerScript.NextScene();
         }
     }
     // Spawns the box and transforms it's position to the position of the boxspawner
