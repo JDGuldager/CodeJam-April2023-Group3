@@ -991,10 +991,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Example
+  m_text: FANG DE FALDENDE PANDAER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5a0f4866e36b770448e66c4b9ed05a94, type: 2}
-  m_sharedMaterial: {fileID: 7603290356614442587, guid: 5a0f4866e36b770448e66c4b9ed05a94, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1083,7 +1083,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7603290356614442587, guid: 5a0f4866e36b770448e66c4b9ed05a94, type: 2}
+  - {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
