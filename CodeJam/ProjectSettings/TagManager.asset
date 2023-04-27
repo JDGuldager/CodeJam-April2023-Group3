@@ -4,16 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Destroy
-  - Box
-  - Platform
-  - GameOver
-<<<<<<< HEAD
+  - Undefined
   - Obstacle
-=======
-  - Virus
-  - GreenVirus
->>>>>>> 8b4932ae946546921a8895235b22784167d414ba
+  - Destroyer
   layers:
   - Default
   - TransparentFX
@@ -48,15 +41,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: bagerst
+    uniqueID: 885909891
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: bagerst
-    uniqueID: 2545482431
-    locked: 0
   - name: forrest
-    uniqueID: 604782461
-    locked: 0
-  - name: Light
-    uniqueID: 3013100725
+    uniqueID: 3617342379
     locked: 0
