@@ -32,6 +32,10 @@ public class Swipe : MonoBehaviour
     void Update()
     {
         SwipeMechanism();
+        if(Timer.timerTillNextScene <= 0f)
+		{
+            Timer.GameOver();
+		}
     }
 
     IEnumerator MovePatient(Vector3 start, Vector3 target)
@@ -71,21 +75,21 @@ public class Swipe : MonoBehaviour
                     Debug.Log("Correct, I'm Injured");
                     if (currentPatientIndex >= patients.Count-1) 
                     {
-                        SceneManager.LoadScene(1);
+                        Timer.NextScene();
                     }
 
                 }
                 else if (endLocation > 0)
                 {
                     Debug.Log("Incorrect, I'm Injured");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+                    Timer.GameOver();
                 }
                 break;
             case assignCategories.Category.Recovered:
                 if (endLocation < 0)
                 {
                     Debug.Log("Incorrect, I'm Recovered");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+                    Timer.GameOver();
 
                 }
                 else if (endLocation > 0)
@@ -94,9 +98,11 @@ public class Swipe : MonoBehaviour
                     Debug.Log("Correct, I'm Recovered");
                     if (currentPatientIndex >= patients.Count - 1)
                     {
-                        SceneManager.LoadScene(1);
+                        Timer.NextScene();
                     }
                 }
+                
+
                 break;
         }
     }
