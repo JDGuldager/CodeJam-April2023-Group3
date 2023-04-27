@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 //https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/
 public class Timer : MonoBehaviour
 {
-    public Text timeLeft;
+    public TextMeshProUGUI timeLeft;
     public bool timerIsRunning = false;
     public float timeTillWin = 30f;
     public float timeTillLose = 30f;
@@ -54,7 +55,7 @@ public class Timer : MonoBehaviour
 
 public void WinGame(int SceneNum)
 {
-    SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0); ;
 }
 
 public void LoseGame(int SceneNum)
