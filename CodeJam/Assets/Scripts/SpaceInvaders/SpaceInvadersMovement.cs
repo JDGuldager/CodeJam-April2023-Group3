@@ -9,7 +9,7 @@ public class SpaceInvadersMovement : MonoBehaviour
     Rigidbody2D rb;
     float dx;
     float dy;
-    private float min_x = -1.55f, max_x = 1.55f;
+    private float min_x = -2.22f, max_x = 2.22f;
     [SerializeField]
     float moveSpeed = 20f;
 
@@ -31,6 +31,6 @@ public class SpaceInvadersMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(dx, dy);
+        rb.velocity = new Vector2(dx,0);
     }
 }
