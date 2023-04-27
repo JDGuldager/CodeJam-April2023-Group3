@@ -10,7 +10,7 @@ public class Bed_script : MonoBehaviour
    // bool IsPandaSpawned = false; //Check if the panda is there, so only one at a time
     private float min_x = -1.55f, max_x = 1.55f;
 
-    [SerializeField] float moveSpeed = 20f;
+    [SerializeField] float moveSpeed = 10f;
 
     //[SerializeField] GameObject PandaPreFab; //Panda object
 
