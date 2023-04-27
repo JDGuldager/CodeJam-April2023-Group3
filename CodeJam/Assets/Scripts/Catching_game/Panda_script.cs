@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Panda_script : MonoBehaviour
 {
@@ -57,7 +58,9 @@ public class Panda_script : MonoBehaviour
             storkScript.score++;
             tmp.text = storkScript.score.ToString();
         }
-        
+        if(storkScript.score > 10) {
+            SceneManager.LoadScene("MainMenu");
+        }
         
     }
 }

@@ -2,34 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class SoundManager
+public class SoundManager : MonoBehaviour
 {
-    public enum Sound
-    {
-        VirusFound,
-        Waterdroplet,
+    public static SoundManager instance;
+    public AudioSource music;
+    public AudioSource effect;
 
-    }
-    public static void PlaySound(Sound sound)
+    private void Awake()
     {
-        GameObject soundGameObject = new GameObject("Sound");
-        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
-        audioSource.PlayOneShot(GetAudioClip(sound));
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
+    }
+
+    public void PlaySound(AudioClip sound)
+    {
+        effect.PlayOneShot(sound);
     
     }
 
-    private static AudioClip GetAudioClip(Sound sound)
-    {
-        foreach(GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
-        {
-            if (soundAudioClip.sound == sound)
-            {
-                return soundAudioClip.audioClip;
-            }
-        }
-        Debug.LogError("Sound" + sound + "not found!");
-        return null;
-    }
-
-    //SoundManager.PlaySound(SoundManager.Sound.VirusFound);
 }

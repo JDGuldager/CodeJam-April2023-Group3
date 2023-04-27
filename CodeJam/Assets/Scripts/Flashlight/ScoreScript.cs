@@ -17,7 +17,7 @@ public class ScoreScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = ("VIRUSES HEALED: " + scoreValue.ToString());
+        scoreText.text = ("MANGLER: " + scoreValue.ToString());
 
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,12 +11,12 @@ using UnityEngine.UI;
 //https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/
 public class Timer : MonoBehaviour
 {
-    public Text timeLeft;
+    public TextMeshProUGUI timeLeft;
     public bool timerIsRunning = false;
-    public float timeTillWin = 30f;
-    public float timeTillLose = 30f;
-    public bool WinTimerBool = false;
-    public bool LoseTimerBool = false;
+    public static float timerTillNextScene = 30f;
+    //public bool conditionHasBeenMet = true;
+
+    public bool con = false;
 
     private void Start()
     {
@@ -25,53 +26,29 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        if (WinTimerBool == true)
-        {
-            DisplayWinTime();
-            if (timeTillWin > 0)
+            if (timerTillNextScene > 0)
             {
-                timeTillWin -= Time.deltaTime;
+                timerTillNextScene -= Time.deltaTime;
             }
-            else
-            {
-                Invoke("WinGame", 1f);
-            }
-        }
 
-        if (LoseTimerBool == true)
-        {
-            DisplayLoseTime();
-            if (timeTillLose > 0)
-            {
-                timeTillLose -= Time.deltaTime;
-            }
-            else
-            {
-                Invoke("LoseGame", 1f);
-            }
-        }
-    } 
-
-public void WinGame(int SceneNum)
-{
-    SceneManager.LoadScene(0);
-}
-
-public void LoseGame(int SceneNum)
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        DisplayTime();
     }
-void DisplayWinTime()
-{
-float minutes = Mathf.FloorToInt(timeTillWin / 60);
-float seconds = Mathf.FloorToInt(timeTillWin % 60);
-timeLeft.text = string.Format("TIME LEFT: {0:00}:{1:00}", minutes, seconds);
-}
 
-void DisplayLoseTime()
-{
-float minutes = Mathf.FloorToInt(timeTillLose / 60);
-float seconds = Mathf.FloorToInt(timeTillLose % 60);
-timeLeft.text = string.Format("TIME LEFT: {0:00}:{1:00}", minutes, seconds);
-}
-}
+    public void NextScene()
+    {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    void DisplayTime()
+    {
+    float minutes = Mathf.FloorToInt(timerTillNextScene / 60);
+    float seconds = Mathf.FloorToInt(timerTillNextScene % 60);
+    timeLeft.text = string.Format("TID TILBAGE: {0:00}:{1:00}", minutes, seconds);
+    }
+
+    }
