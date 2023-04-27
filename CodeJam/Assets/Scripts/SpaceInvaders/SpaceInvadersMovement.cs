@@ -31,6 +31,6 @@ public class SpaceInvadersMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(dx, dy);
+        rb.velocity = new Vector2(dx,0);
     }
 }
