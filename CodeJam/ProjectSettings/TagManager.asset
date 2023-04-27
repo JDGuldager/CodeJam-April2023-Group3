@@ -7,6 +7,12 @@ TagManager:
   - Undefined
   - Obstacle
   - Destroyer
+  - GameOver
+  - Destroy
+  - Platform
+  - Box
+  - UsedBox
+  - UsedPlatform
   layers:
   - Default
   - TransparentFX
