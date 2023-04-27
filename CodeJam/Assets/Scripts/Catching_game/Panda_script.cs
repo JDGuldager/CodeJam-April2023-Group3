@@ -34,7 +34,7 @@ public class Panda_script : MonoBehaviour
     //The idea for making a bool to check the prefab, and calling the class on collision is from this video https://www.youtube.com/watch?v=IXDvl8aTM_M
     
     private void SpawnPanda(){
-         if (IsPandaSpawned == false || numPanda < 10) { 
+         if (IsPandaSpawned == false || spawnPos.transform.position.y < 3.9f) { 
             numPanda ++;
             float x = Random.Range(minX, maxX);
             //Vector3 PanPosition = new Vector3(2.5f, 4f, 0f); 
@@ -55,7 +55,7 @@ public class Panda_script : MonoBehaviour
         {
             Debug.Log("Registered" + storkScript.score);
             storkScript.score++;
-             tmp.text = storkScript.score.ToString();
+            tmp.text = storkScript.score.ToString();
         }
         
         
