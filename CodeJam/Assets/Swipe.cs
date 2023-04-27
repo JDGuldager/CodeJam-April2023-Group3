@@ -110,22 +110,22 @@ public class Swipe : MonoBehaviour
         switch (firstPatient.GetComponent<assignCategories>().objectCategory)
 		{
             case assignCategories.Category.Injured:
-                if (endLocation > 0)
+                if (endLocation < 0)
                 {
                     Debug.Log("Correct, I'm Injured");
                     
-                } else if (endLocation < 0)
+                } else if (endLocation > 0)
                 {
                     Debug.Log("Incorrect, I'm Injured");
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0); ;
                 }
                 break;
             case assignCategories.Category.Recovered:
-                if (endLocation > 0)
+                if (endLocation < 0)
                 {
                     Debug.Log("Incorrect, I'm Recovered");
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0); ;
-                } else if (endLocation < 0)
+                } else if (endLocation > 0)
                 {
                     Debug.Log("Correct, I'm Recovered");
                 }
