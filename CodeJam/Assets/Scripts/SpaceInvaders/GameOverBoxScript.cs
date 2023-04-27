@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameOverBoxScript : MonoBehaviour
 {
@@ -14,6 +13,6 @@ public class GameOverBoxScript : MonoBehaviour
 
     private void RestartGame()
     {
-        SceneManager.LoadScene("GameOver");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 }
