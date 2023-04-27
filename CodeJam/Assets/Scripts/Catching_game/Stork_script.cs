@@ -17,7 +17,7 @@ public class Stork_script : MonoBehaviour
     public int minX = -2;
     public int maxX = 2;
     public int y = 0;
-    bool IsPandaSpawned = false;
+   // bool IsPandaSpawned = false;
 
     [SerializeField] private TextMeshProUGUI tmp;
     public int score = -1;
@@ -43,19 +43,4 @@ public class Stork_script : MonoBehaviour
         //rbPanda.transform.position = new Vector3(Random.Range(0,10), -50, Random.Range(0,10)) * speed;
 
     }
-
-    // public void SpawnPanda(){
-    //     score++;
-    //     Debug.Log("test2");
-    //     if (IsPandaSpawned == false || numPanda < 10) { 
-    //         Debug.Log("test");
-    //         score ++;
-    //         float x = Random.Range(minX, maxX);
-    //         Vector3 PanPosition = new Vector3(0, 4f, 0f); //Makes the panda spawn on a random range on x axis
-    //         Instantiate(pandaPrefab, rbStork.transform.position, Quaternion.identity); //Instantiate the prefab at the random loc (This line have been gotten through ChatBot)
-    //         IsPandaSpawned = true;
-    //        //Debug.Log(score);
-    //        // 
-    //     }
-    //    }
 }
