@@ -34,12 +34,12 @@ public class Timer : MonoBehaviour
         DisplayTime();
     }
 
-    public void NextScene()
+    public static void NextScene()
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void GameOver()
+    public static void GameOver()
     {
         SceneManager.LoadScene("GameOver");
     }

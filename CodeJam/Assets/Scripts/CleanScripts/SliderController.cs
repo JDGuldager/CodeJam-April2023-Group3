@@ -8,7 +8,6 @@ public class SliderController : MonoBehaviour
     int progress;
     public Slider slider;
     public sceneChanger changeScene;
-    public Timer time;
 
     public Animator m_Animator;
     public bool m_Soap = false;
@@ -47,12 +46,12 @@ public class SliderController : MonoBehaviour
     {
         if (slider.value == 212)
         {
-            time.NextScene();
+            Timer.NextScene();
         }
 
         if (Timer.timerTillNextScene <= 0f)
         {
-            time.GameOver();
+            Timer.GameOver();
         }
     }
 }

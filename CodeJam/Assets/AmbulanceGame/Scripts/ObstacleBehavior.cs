@@ -10,10 +10,6 @@ public class ObstacleBehavior : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float speed = -10f;
-    
-    
-
-
 
     void Start()
     {
@@ -32,7 +28,7 @@ public class ObstacleBehavior : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            Timer.GameOver();
         }
     }
 }

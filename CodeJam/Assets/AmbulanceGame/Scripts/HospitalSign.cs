@@ -7,7 +7,7 @@ public class HospitalSign : MonoBehaviour
 {
     private Rigidbody2D rb;
     private BoxCollider2D col;
-    
+
     void Start()
     {
         col = GetComponent<BoxCollider2D>();
@@ -19,7 +19,7 @@ public class HospitalSign : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            Timer.NextScene();
         }
     }
 }
