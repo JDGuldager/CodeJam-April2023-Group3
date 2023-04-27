@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundAudioClipArray:
   - sound: 0
-    audioClip: {fileID: 8300000, guid: 35b89e4eadd084ee6b9fc418a28ae6c3, type: 3}
+    audioClip: {fileID: 8300000, guid: 94da3da7ff3ad4480af530e349a7370e, type: 3}
   - sound: 1
     audioClip: {fileID: 0}
 --- !u!1 &1490255266
