@@ -8,6 +8,7 @@ public class Bed_script : MonoBehaviour
     float dx;
     float dy;
    // bool IsPandaSpawned = false; //Check if the panda is there, so only one at a time
+    private float min_x = -1.55f, max_x = 1.55f;
 
     [SerializeField] float moveSpeed = 20f;
 
@@ -24,23 +25,15 @@ public class Bed_script : MonoBehaviour
     void Update()
     {
         dx = Input.acceleration.x * moveSpeed;
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -Screen.width / 2f + 0.5f, Screen.width / 2f - 0.5f), transform.position.y);
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, min_x, max_x), transform.position.y);
 
-
+        dy = Input.acceleration.y * moveSpeed;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(dx, 0f);
+        rb.velocity = new Vector2(dx, dy);
     }
-
-    // private void SpawnPanda(){
-    //     if (IsPandaSpawned == false){
-    //         Vector3 PanPosition = new Vector3(Random.Range(-2, 2), 800f, 0f); //Makes the panda spawn on a random range on x axis 
-    //         Instantiate(PandaPreFab, PanPosition, Quaternion.identity); //Instantiate the prefab at the random loc
-    //         IsPandaSpawned = true;
-    //     }
-    // }
 
    
 }

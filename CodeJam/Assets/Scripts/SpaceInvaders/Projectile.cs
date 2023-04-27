@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 10.0f;
     public float lifetime = 5.0f;
+    public GameObject BacteriaPrefab; 
 
     private float spawnTime;
 
@@ -26,17 +27,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // Check if the projectile has collided with an enemy or other object and destroy it.
-        if (other.CompareTag("Bacteria"))
-        {
-            Destroy(gameObject);
-            // Do something to damage the enemy object here.
-        }
-        else
-        {
-            
-        }
-    }
+   private void OnTriggerEnter2D(Collider2D collision) {
+        Destroy(gameObject);
+        Destroy(collision.gameObject);
+
+   }
+
 }

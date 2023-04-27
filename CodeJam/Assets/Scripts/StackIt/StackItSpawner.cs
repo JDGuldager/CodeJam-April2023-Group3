@@ -17,6 +17,7 @@ public class StackItSpawner : MonoBehaviour
     private void Update()
     {
         tmp.text = score.ToString();
+
         if (score == 10)
         {
             sky.SetActive(true);
@@ -25,7 +26,6 @@ public class StackItSpawner : MonoBehaviour
     // Spawns the box and transforms it's position to the position of the boxspawner
     public void SpawnBox()
     {
-        Debug.Log(score.ToString());
         GameObject box_obj = Instantiate(boxPrefab);
         score++;
         Vector3 temp = transform.position;
