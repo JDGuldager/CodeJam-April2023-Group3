@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
-//using UnityEditor.Experimental.GraphView;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,7 +14,9 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timeLeft;
     public bool timerIsRunning = false;
     public float timerTillNextScene = 30f;
+    //public bool conditionHasBeenMet = true;
 
+    public GameObject con;
 
     private void Start()
     {
@@ -30,7 +32,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Invoke("NextScene", 1f);
+            Invoke("NextScene", 0f);
             }
 
         DisplayTime();
@@ -38,7 +40,14 @@ public class Timer : MonoBehaviour
 
 public void NextScene(int SceneNum)
 {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0); ;
+        if (con == true)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0/*GameOver*/);
+        }
 }
 void DisplayTime()
 {
