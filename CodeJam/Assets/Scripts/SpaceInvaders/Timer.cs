@@ -44,6 +44,10 @@ public class Timer : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
+    public static void RestartGame()
+    {
+        SceneManager.LoadScene("Ambulance");
+    }
     void DisplayTime()
     {
     float minutes = Mathf.FloorToInt(timerTillNextScene / 60);
