@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Stork_script : MonoBehaviour
 {
     [SerializeField] float speed = 300f; //The speed
-    [SerializeField] Rigidbody2D rbStork;
+    [SerializeField] public Rigidbody2D rbStork;
     public float respawn = -250f;
     public GameObject pandaPrefab;
     public Panda_script pandaScript;
@@ -21,23 +21,32 @@ public class Stork_script : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tmp;
     public int score = -1;
 
+    Vector3 PanPosition = new Vector3(2.2f, 4f, 0f); 
+
     void Start()
     {
         //SpawnPanda();
         rbStork = GetComponent<Rigidbody2D>();
         rbStork.velocity = new Vector2(-speed, 0f); //The stork moves from left to right
+        
     }
 
 
     void FixedUpdate()
     {
+           Debug.Log(Time.deltaTime);
+            if(Time.frameCount < -10){
+            Destroy(pandaPrefab);
+        }  
         tmp.text = score.ToString();
         if (respawn > rbStork.transform.position.x)
         {
-            Vector2 newPos = new Vector2(respawn + 1400f, rbStork.transform.position.y);
+            Vector2 newPos = new Vector2(respawn + 4f, rbStork.transform.position.y);
             //You can also do it like this to not have magic number "Camera.main.aspect * Camera.main.orthographicSize * 2f"
             rbStork.transform.position = newPos;
         }
+
+  
         //rbPanda.transform.position = new Vector3(Random.Range(0,10), -50, Random.Range(0,10)) * speed;
 
     }

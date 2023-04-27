@@ -9,13 +9,16 @@ public class LightScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+
         if (other.CompareTag("Virus"))
         {
             //Make green
             other.GetComponent<SpriteRenderer>().sprite = greenVirusSprite;
+            
 
             //Change tag
             other.tag = "GreenVirus";
+            
 
             //Chnage sprite layer
             other.GetComponent<SpriteRenderer>().sortingOrder = 1;
