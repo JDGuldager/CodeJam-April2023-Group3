@@ -18,7 +18,8 @@ public class Swipe : MonoBehaviour
     public GameObject leftSide, rightSide;
     public float speed = 10f;
 
-    public AudioClip rockMeHeavy;
+    public AudioClip happyRed;
+    public AudioClip dissapointedRed;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +72,7 @@ public class Swipe : MonoBehaviour
             case assignCategories.Category.Injured:
                 if (endLocation < 0)
                 {
-                    SoundManager.instance.PlaySound(rockMeHeavy);
+                    SoundManager.instance.PlaySound(happyRed);
                     Debug.Log("Correct, I'm Injured");
                     if (currentPatientIndex >= patients.Count-1) 
                     {
@@ -81,6 +82,7 @@ public class Swipe : MonoBehaviour
                 }
                 else if (endLocation > 0)
                 {
+                    SoundManager.instance.PlaySound(dissapointedRed);
                     Debug.Log("Incorrect, I'm Injured");
                     Timer.GameOver();
                 }
@@ -88,13 +90,14 @@ public class Swipe : MonoBehaviour
             case assignCategories.Category.Recovered:
                 if (endLocation < 0)
                 {
+                    SoundManager.instance.PlaySound(dissapointedRed);
                     Debug.Log("Incorrect, I'm Recovered");
                     Timer.GameOver();
 
                 }
                 else if (endLocation > 0)
                 {
-                    SoundManager.instance.PlaySound(rockMeHeavy);
+                    SoundManager.instance.PlaySound(happyRed);
                     Debug.Log("Correct, I'm Recovered");
                     if (currentPatientIndex >= patients.Count - 1)
                     {
