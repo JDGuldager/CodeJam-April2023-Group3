@@ -59,7 +59,7 @@ public void WinGame(int SceneNum)
 
 public void LoseGame(int SceneNum)
     {
-        SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 void DisplayWinTime()
 {
