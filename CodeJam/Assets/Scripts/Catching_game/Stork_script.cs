@@ -8,7 +8,7 @@ public class Stork_script : MonoBehaviour
 {
     [SerializeField] float speed = 300f; //The speed
     [SerializeField] public Rigidbody2D rbStork;
-    public float respawn = -250f;
+    public float respawn = -2.5f;
     public GameObject pandaPrefab;
     public Panda_script pandaScript;
  
@@ -20,8 +20,6 @@ public class Stork_script : MonoBehaviour
 
    // [SerializeField] private TextMeshProUGUI tmp;
     public int score = 0;
-
-    Vector3 PanPosition = new Vector3(2.2f, 4f, 0f); 
 
     void Start()
     {

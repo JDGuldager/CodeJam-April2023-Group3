@@ -18,6 +18,6 @@ public class ScoreScript : MonoBehaviour
     void Update()
     {
         scoreText.text = ("VIRUSES HEALED: " + scoreValue.ToString());
-        
+
     }
 }

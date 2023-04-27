@@ -19,9 +19,8 @@ public class LightScript : MonoBehaviour
 
             //Change tag
             other.tag = "GreenVirus";
-            ScoreScript.scoreValue --;
+            ScoreScript.scoreValue--;
 
-            
 
             //Chnage sprite layer
             other.GetComponent<SpriteRenderer>().sortingOrder = 1;
