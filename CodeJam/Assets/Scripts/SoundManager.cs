@@ -7,6 +7,7 @@ public static class SoundManager
     public enum Sound
     {
         VirusFound,
+        Waterdroplet,
 
     }
     public static void PlaySound(Sound sound)

@@ -1201,6 +1201,8 @@ MonoBehaviour:
   soundAudioClipArray:
   - sound: 0
     audioClip: {fileID: 8300000, guid: 35b89e4eadd084ee6b9fc418a28ae6c3, type: 3}
+  - sound: 1
+    audioClip: {fileID: 0}
 --- !u!1 &1490255266
 GameObject:
   m_ObjectHideFlags: 0
