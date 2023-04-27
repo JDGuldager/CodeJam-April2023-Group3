@@ -9,6 +9,24 @@ public class LightScript : MonoBehaviour
     private ScoreScript scoreScript;
     public AudioClip virusSound;
 
+    private void Update()
+    {
+        VirusWinLose();
+    }
+
+    public void VirusWinLose()
+    {
+        if (ScoreScript.scoreValue == 0)
+        {
+            Timer.NextScene();
+        }
+
+        if(Timer.timerTillNextScene <= 0f)
+        {
+            Timer.GameOver();
+        }
+    } 
+
     public void OnTriggerEnter2D(Collider2D other)
     {
 
