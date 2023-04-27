@@ -328,10 +328,8 @@ MonoBehaviour:
   spawnPos: {fileID: 1298405816}
   storkScript: {fileID: 1146434828}
   tmp: {fileID: 1643678016}
-  numPanda: 1
-  minX: -2
-  maxX: 2
   y: 0
+  soundsound: {fileID: 0}
 --- !u!1 &574861513
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,10 +363,8 @@ MonoBehaviour:
   spawnPos: {fileID: 0}
   storkScript: {fileID: 0}
   tmp: {fileID: 0}
-  numPanda: 1
-  minX: -2
-  maxX: 2
   y: 0
+  soundsound: {fileID: 0}
 --- !u!4 &574861515
 Transform:
   m_ObjectHideFlags: 0
@@ -541,7 +537,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06595993, y: -0.25440872}
+  m_Offset: {x: 0.08785963, y: -0.25440872}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -552,7 +548,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.358274, y: 0.17986244}
+  m_Size: {x: 3.863474, y: 0.17986244}
   m_EdgeRadius: 0
 --- !u!212 &796229006
 SpriteRenderer:
