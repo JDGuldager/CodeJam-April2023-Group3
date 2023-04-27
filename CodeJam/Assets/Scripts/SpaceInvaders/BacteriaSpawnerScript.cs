@@ -28,7 +28,7 @@ public void CheckIfWinOrLose()
 {
         if (Timer.timerTillNextScene <= 0f)
         {
-            time.NextScene();
+            Timer.NextScene();
         }
     }
 }
