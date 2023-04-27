@@ -13,17 +13,10 @@ public class SliderController : MonoBehaviour
     public Animator m_Animator;
     public bool m_Soap = false;
 
-    private float timeSoap = 0.0f;
-    public float noSoapPeriod= 4f;
-    private bool startAnimation;
-
     private void Start()
     {
         progress = 0;
         slider.value = progress;
-
-       
-       
     }
 
     private void Update()
@@ -52,12 +45,7 @@ public class SliderController : MonoBehaviour
     {
         if (slider.value == 212)
         {
-            changeScene.LoadAScene(1);
-        }
-
-        if (time.LoseTimerBool == true)
-        {
-            changeScene.LoadAScene(2);
+            time.con = true;
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour
     public float timerTillNextScene = 30f;
     //public bool conditionHasBeenMet = true;
 
-    public GameObject con;
+    public bool con = false;
 
     private void Start()
     {
@@ -42,11 +42,11 @@ public void NextScene(int SceneNum)
 {
         if (con == true)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0/*GameOver*/);
+            SceneManager.LoadScene("GameOver");
         }
 }
 void DisplayTime()
