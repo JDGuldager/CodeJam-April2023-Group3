@@ -18,7 +18,8 @@ public class Swipe : MonoBehaviour
     public GameObject leftSide, rightSide;
     public float speed = 10f;
 
-    public AudioClip rockMeHeavy;
+    public AudioClip happyRed;
+    public AudioClip dissapointedRed;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class Swipe : MonoBehaviour
     void Update()
     {
         SwipeMechanism();
+        if(Timer.timerTillNextScene <= 0f)
+		{
+            Timer.GameOver();
+		}
     }
 
     IEnumerator MovePatient(Vector3 start, Vector3 target)
@@ -67,36 +72,40 @@ public class Swipe : MonoBehaviour
             case assignCategories.Category.Injured:
                 if (endLocation < 0)
                 {
-                    SoundManager.instance.PlaySound(rockMeHeavy);
+                    SoundManager.instance.PlaySound(happyRed);
                     Debug.Log("Correct, I'm Injured");
                     if (currentPatientIndex >= patients.Count-1) 
                     {
-                        SceneManager.LoadScene(1);
+                        Timer.NextScene();
                     }
 
                 }
                 else if (endLocation > 0)
                 {
+                    SoundManager.instance.PlaySound(dissapointedRed);
                     Debug.Log("Incorrect, I'm Injured");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+                    Timer.GameOver();
                 }
                 break;
             case assignCategories.Category.Recovered:
                 if (endLocation < 0)
                 {
+                    SoundManager.instance.PlaySound(dissapointedRed);
                     Debug.Log("Incorrect, I'm Recovered");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+                    Timer.GameOver();
 
                 }
                 else if (endLocation > 0)
                 {
-                    SoundManager.instance.PlaySound(rockMeHeavy);
+                    SoundManager.instance.PlaySound(happyRed);
                     Debug.Log("Correct, I'm Recovered");
                     if (currentPatientIndex >= patients.Count - 1)
                     {
-                        SceneManager.LoadScene(1);
+                        Timer.NextScene();
                     }
                 }
+                
+
                 break;
         }
     }
