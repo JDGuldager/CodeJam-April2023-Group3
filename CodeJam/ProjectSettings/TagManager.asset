@@ -13,6 +13,9 @@ TagManager:
   - Box
   - UsedBox
   - UsedPlatform
+  - Bacteria
+  - Projectile
+  - Virus
   layers:
   - Default
   - TransparentFX

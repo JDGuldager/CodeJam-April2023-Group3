@@ -7,8 +7,9 @@ public class BacteriaSpawnerScript : MonoBehaviour
 public GameObject enemyPrefab;
 public float spawnInterval = 2.0f;
 private float spawnTimer = 0.0f;
- 
-void Update()
+public Timer time;
+
+    void Update()
 {
     spawnTimer += Time.deltaTime;
     if (spawnTimer >= spawnInterval)
@@ -19,5 +20,15 @@ void Update()
         Vector3 spawnPos = new Vector3(spawnX, spawnY, 0.0f);
         Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
     }
-}
+
+        CheckIfWinOrLose();
+    }
+
+public void CheckIfWinOrLose()
+{
+        if (Timer.timerTillNextScene <= 0f)
+        {
+            time.NextScene();
+        }
+    }
 }

@@ -12,6 +12,8 @@ public class ObstacleSpawner : MonoBehaviour
     private int randomPos;
 
     private int xAxis;
+
+    public int repeatCounter;
     // Start is called before the first frame update
 
     private void Start()
@@ -24,7 +26,6 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Spawner()
     {
-        
         randomPos = Random.Range(0, 2);
         if (randomPos == 0)
         {
@@ -34,8 +35,15 @@ public class ObstacleSpawner : MonoBehaviour
         {
             xAxis = +1;
         }
-            
-        GameObject spawnedItem = Instantiate(obstaclePrefabs[Random.Range(0, 3)]);
-        spawnedItem.transform.position = new Vector3(xAxis,12,0);
+
+        if (repeatCounter <= 19)
+        {
+            GameObject spawnedItem = Instantiate(obstaclePrefabs[Random.Range(0, 3)]);
+            spawnedItem.transform.position = new Vector3(xAxis,12,0);
+            repeatCounter++;
+        }
+        
+        
+        Debug.Log(repeatCounter);
     }
 }

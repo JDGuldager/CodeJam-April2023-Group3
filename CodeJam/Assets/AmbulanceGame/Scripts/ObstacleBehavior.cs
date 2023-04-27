@@ -10,9 +10,6 @@ public class ObstacleBehavior : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float speed = -10f;
-    
-
-
 
     void Start()
     {
@@ -24,13 +21,14 @@ public class ObstacleBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Destroyer"))
-            //if (other.gameObject.tag == "Destroyer")
+            
         {
             Destroy(gameObject);
+            
         }
         else if (other.gameObject.CompareTag("Player"))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            Timer.GameOver();
         }
     }
 }

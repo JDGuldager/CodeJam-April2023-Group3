@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 885909891
-  m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 2f23008ea8ac76c46bae1781a2fcce48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   collider: {fileID: 0}
   rb: {fileID: 0}
   scrollSpeed: -10
+  hospitalPrefab: {fileID: 652422469327972642, guid: 45c877eb23aa76c45a5f4b044cd9aa03, type: 3}
+  obstacleSpawnScript: {fileID: 0}
 --- !u!61 &2072173716582271356
 BoxCollider2D:
   m_ObjectHideFlags: 0

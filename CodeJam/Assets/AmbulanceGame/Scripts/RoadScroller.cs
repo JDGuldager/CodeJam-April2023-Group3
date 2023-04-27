@@ -14,11 +14,15 @@ public class RoadScroller : MonoBehaviour
     public Rigidbody2D rb;
     public float scrollSpeed = -10f;
     private float height;
-    
-    
+    public GameObject hospitalPrefab;
+    public ObstacleSpawner obstacleSpawnScript;
+    private bool hospitalSpawned = true;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        obstacleSpawnScript = GameObject.Find("ObstacleSpawner").GetComponent<ObstacleSpawner>();
 
         collider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
@@ -27,7 +31,7 @@ public class RoadScroller : MonoBehaviour
         collider.enabled = false;
 
         rb.velocity = new Vector2(0, scrollSpeed);
-        
+
 
     }
 
@@ -35,19 +39,27 @@ public class RoadScroller : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y < -height)
+        if (transform.position.y < -height && obstacleSpawnScript.repeatCounter < 20)
         {
-            
+
             Vector2 resetPosition = new Vector2(0, height);
             transform.position = (Vector2)transform.position + resetPosition;
             Instantiate(RoadPrefab, resetPosition, Quaternion.identity);
             Destroy(gameObject);
-            
+        }
+        
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (obstacleSpawnScript.repeatCounter == 20 && hospitalSpawned)
+        {
+            hospitalSpawned = false;
+            Vector2 resetPosition = new Vector2(0, height);
+            transform.position = (Vector2)transform.position + resetPosition;
+            Instantiate(hospitalPrefab, resetPosition, Quaternion.identity);
         }
     }
 
-
-    
-    }
-
-
+}
