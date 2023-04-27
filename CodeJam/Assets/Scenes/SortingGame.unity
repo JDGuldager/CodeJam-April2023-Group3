@@ -669,8 +669,8 @@ MonoBehaviour:
   leftSide: {fileID: 823161669}
   rightSide: {fileID: 2045877656}
   speed: 30
-  happyRed: {fileID: 0}
-  dissapointedRed: {fileID: 0}
+  happyRed: {fileID: 8300000, guid: cb36e416c9ff63549ae95c8e8c874c1a, type: 3}
+  dissapointedRed: {fileID: 8300000, guid: 56701cbc88f33b34a9faa39fae336095, type: 3}
 --- !u!1 &525405258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2482,7 +2482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817806fbba0c0784d81d7fbf3b27f571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  canvas: {fileID: 1219657948}
 --- !u!4 &1454771639
 Transform:
   m_ObjectHideFlags: 0
