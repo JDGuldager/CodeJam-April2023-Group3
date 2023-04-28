@@ -11,12 +11,12 @@ Members:
 
 Scripts are found in assets > Scripts
 
-AmbulanceScripts - Laurids
-Flashlight - Alina 
-Catching_game - Simon Axelsen
-SortingGame - Halipha
-WindowCleanerScripts - Leonora
-StackIt - Jeppe
-SpaceInvaders - Felix Iuel
+- AmbulanceScripts - Laurids
+- Flashlight - Alina 
+- Catching_game - Simon Axelsen
+- SortingGame - Halipha
+- WindowCleanerScripts - Leonora
+- StackIt - Jeppe
+- SpaceInvaders - Felix Iuel
 
-UsedInMultiple - Multiple authors
+- UsedInMultiple - Multiple authors
