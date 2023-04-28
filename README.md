@@ -18,3 +18,5 @@ SortingGame - Halipha
 WindowCleanerScripts - Leonora
 StackIt - Jeppe
 SpaceInvaders - Felix Iuel
+
+UsedInMultiple - Multiple authors
