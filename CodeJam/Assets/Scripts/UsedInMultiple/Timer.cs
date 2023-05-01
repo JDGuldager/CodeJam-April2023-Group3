@@ -38,16 +38,19 @@ public class Timer : MonoBehaviour
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         DataHolder.totalScore++;
+        timerTillNextScene = 30f;
     }
 
     public static void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+        timerTillNextScene = 30f;
     }
 
     public static void RestartGame()
     {
         SceneManager.LoadScene("Ambulance");
+        timerTillNextScene = 30f;
     }
     void DisplayTime()
     {

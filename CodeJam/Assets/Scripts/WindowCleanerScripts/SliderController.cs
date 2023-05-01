@@ -12,6 +12,8 @@ public class SliderController : MonoBehaviour
     public Animator m_Animator;
     public bool m_Soap = false;
 
+    public AudioClip blopsound;
+
     private void Start()
     {
         progress = 0;
@@ -31,6 +33,7 @@ public class SliderController : MonoBehaviour
     {
         m_Animator.SetBool("m_Soap", true);
         m_Soap = true;
+        SoundManager.instance.PlaySound(blopsound);
         yield return new WaitForSeconds(4);
         m_Animator.SetBool("m_Soap", false);
         m_Soap = false;

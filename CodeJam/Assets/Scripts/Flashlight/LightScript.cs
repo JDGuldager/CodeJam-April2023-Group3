@@ -40,7 +40,7 @@ public class LightScript : MonoBehaviour
             other.tag = "GreenVirus";
             ScoreScript.scoreValue--;
 
-            //Chnage sprite layer
+            //Change sprite layer
             other.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
             //Spawn new virus
