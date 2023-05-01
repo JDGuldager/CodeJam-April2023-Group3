@@ -17,7 +17,7 @@ public class RoadScroller : MonoBehaviour
     public GameObject hospitalPrefab;
     public ObstacleSpawner obstacleSpawnScript;
     private bool hospitalSpawned = true;
-
+//https://www.youtube.com/watch?v=4YQVrs46f6k INSPIRATION
 
     // Start is called before the first frame update
     void Start()

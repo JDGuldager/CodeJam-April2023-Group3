@@ -14,11 +14,15 @@ public class ObstacleSpawner : MonoBehaviour
     private int xAxis;
 
     public int repeatCounter;
+
+    [SerializeField] private int spawnStartTimer = 3;
+
+    [SerializeField] private int repeatRate = 1;
     // Start is called before the first frame update
 
     private void Start()
     {
-        InvokeRepeating("Spawner", 3, 1);
+        InvokeRepeating("Spawner", spawnStartTimer, repeatRate);
     }
 
     
