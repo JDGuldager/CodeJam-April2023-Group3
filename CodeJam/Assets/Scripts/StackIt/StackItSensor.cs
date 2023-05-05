@@ -21,6 +21,8 @@ public class StackItSensor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // The outcommented is to steer with A and D (For debugging)
+        /*
         if(Input.GetKeyDown(KeyCode.A))
         {
             ADsteer = -0.2f;
@@ -29,19 +31,19 @@ public class StackItSensor : MonoBehaviour
         {
             ADsteer = 0.2f;
         }
-       
             dx = ADsteer * moveSpeed;
             transform.position = new Vector2(Mathf.Clamp(transform.position.x, min_x, max_x), transform.position.y);
 
             dy = ADsteer * moveSpeed;
+        */
       
         
-        /*
+        
         dx = Input.acceleration.x * moveSpeed;
             transform.position = new Vector2(Mathf.Clamp(transform.position.x, min_x, max_x), transform.position.y);
         
         dy = Input.acceleration.y * moveSpeed;
-        */
+        
     }
 
     private void FixedUpdate()
