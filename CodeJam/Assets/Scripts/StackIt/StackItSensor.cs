@@ -10,6 +10,7 @@ public class StackItSensor : MonoBehaviour
     public float min_x = -1.55f, max_x = 1.55f;
     [SerializeField]
     float moveSpeed = 20f;
+    float ADsteer;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +21,27 @@ public class StackItSensor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dx = Input.acceleration.x * moveSpeed;
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            ADsteer = -0.2f;
+        }
+        else if(Input.GetKeyDown(KeyCode.D))
+        {
+            ADsteer = 0.2f;
+        }
+       
+            dx = ADsteer * moveSpeed;
             transform.position = new Vector2(Mathf.Clamp(transform.position.x, min_x, max_x), transform.position.y);
 
+            dy = ADsteer * moveSpeed;
+      
+        
+        /*
+        dx = Input.acceleration.x * moveSpeed;
+            transform.position = new Vector2(Mathf.Clamp(transform.position.x, min_x, max_x), transform.position.y);
+        
         dy = Input.acceleration.y * moveSpeed;
-        // transform.position = new Vector2(Mathf.Clamp(transform.position.y, -7.5f, 7.5f), transform.position.x);
+        */
     }
 
     private void FixedUpdate()

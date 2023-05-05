@@ -18,17 +18,17 @@ public class StackItBox : MonoBehaviour
     private bool ignoreCollision;
     private bool ignoreTrigger;
     private bool canMove;
-
+    private bool hasLanded;
+    public BoxCollider2D myCollider;
     private void Awake()
     {
+        platformObj = GameObject.Find("Platform");
         myBody = GetComponent<Rigidbody2D>();
-        // REMOVE LATER???
-      //  myBody.gravityScale = 0f;
+        myCollider = GetComponent<BoxCollider2D>();
     }
     private void Update()
     {
         MoveBox();
-      
     }
     private void Start()
     {
@@ -93,9 +93,10 @@ public class StackItBox : MonoBehaviour
             // Adds the joint that sticks the packs together
             var hj = gameObject.AddComponent<HingeJoint2D>();
             hj.connectedBody = target.rigidbody;
+            // EYEYSYEYESYESYESYEYSYSEYSEYSEYESYSEYEYSYSEYSE <---------- FIXXX
+            hj.autoConfigureConnectedAnchor = false;
             myBody.mass = 0.00001f;
             target.gameObject.tag = "UsedPlatform";
-
         }
         if (target.gameObject.tag == "Box")
         {
@@ -106,8 +107,10 @@ public class StackItBox : MonoBehaviour
             // Adds the joint that sticks the packs together
             var hj = gameObject.AddComponent<HingeJoint2D>();
             hj.connectedBody = target.rigidbody;
+            hj.autoConfigureConnectedAnchor = false;
             myBody.mass = 0.00001f;
             target.gameObject.tag = "UsedBox";
+         
         }
         
         
