@@ -23,9 +23,9 @@ public class Panda_script : MonoBehaviour
 
     //The idea for making a bool to check the prefab, and calling the class on collision is from this video https://www.youtube.com/watch?v=IXDvl8aTM_M    
     private void SpawnPanda(){
-        score++;
+        score++; //The score goes up by one, each time a new panda is spawned
          if (IsPandaSpawned == false) { //Only spawn when there isnt a panda on screen
-            Instantiate(PandaPreFab, spawnPos.transform.position, Quaternion.identity); //Instantiate the prefab at the random loc (This idea was originally from ChatBot, but changed since)
+            Instantiate(PandaPreFab, spawnPos.transform.position, Quaternion.identity); //Instantiate the prefab (This idea was originally from ChatBot, but changed since)
             IsPandaSpawned = true;
         }
         
@@ -33,11 +33,8 @@ public class Panda_script : MonoBehaviour
      private void OnTriggerEnter2D (Collider2D target){
         SpawnPanda(); //Spawn new when collided
         Destroy(PandaPreFab); //Destroy the Prefab 
-        if(target.gameObject.tag == "Bed") //collison with the bed
+        if(target.gameObject.tag == "Bed") //Collison with the bed
         {
-            
-            //storkScript.score++; //The score goes up by one, each time they collide
-            //tmp.text = storkScript.score.ToString(); //And update the score on screen
             tmp.text = score.ToString(); //And update the score on screen
             SoundManager.instance.PlaySound(soundsound); //And plays a sound effect
         } else {

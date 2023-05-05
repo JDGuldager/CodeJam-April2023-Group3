@@ -13,14 +13,11 @@ public class Stork_script : MonoBehaviour
     [SerializeField] float respawn; //The upper limit x location for the respawn
     public GameObject pandaPrefab;
     public Panda_script pandaScript;
-    public int score = 0;
 
     void Start()
     {
         rbStork = GetComponent<Rigidbody2D>();
         rbStork.velocity = new Vector2(-speed, 0f); //The stork moves from left to right
-
-        
     }
 
 
