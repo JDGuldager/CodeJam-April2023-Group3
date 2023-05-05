@@ -29,10 +29,6 @@ public class StackItBox : MonoBehaviour
     private void Update()
     {
         MoveBox();
-        if (platformObj.transform.position.x == -1.55f || platformObj.transform.position.x == -1.55f)
-        {
-            
-        }
     }
     private void Start()
     {
