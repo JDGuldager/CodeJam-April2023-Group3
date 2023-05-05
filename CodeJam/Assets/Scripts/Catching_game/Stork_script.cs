@@ -8,44 +8,32 @@ using UnityEngine.SceneManagement;
 
 public class Stork_script : MonoBehaviour
 {
-    [SerializeField] float speed = 3f; //The speed
+    [SerializeField] float speed; //The speed
     [SerializeField] public Rigidbody2D rbStork;
-    public float respawn = -3f;
+    [SerializeField] float respawn; //The upper limit x location for the respawn
     public GameObject pandaPrefab;
     public Panda_script pandaScript;
- 
-    public int numPanda = 1;
-    public int minX = -2;
-    public int maxX = 2;
-    public int y = 0;
-   // bool IsPandaSpawned = false;
-
-   // [SerializeField] private TextMeshProUGUI tmp;
     public int score = 0;
 
     void Start()
     {
-        //SpawnPanda();
         rbStork = GetComponent<Rigidbody2D>();
         rbStork.velocity = new Vector2(-speed, 0f); //The stork moves from left to right
+
         
     }
 
 
     void FixedUpdate()
     {
-   
-       // tmp.text = score.ToString();
-        if (respawn > rbStork.transform.position.x)
+        //The Camera.main.aspect * Camera.main.orthographicSize * 2f gives the width of the screen
+        float screenWidth = Camera.main.aspect * Camera.main.orthographicSize * 2f;
+        if (rbStork.transform.position.x < respawn) //If its position is over the screen limit spawn again 
         {
-            Vector2 newPos = new Vector2(respawn + 4f, rbStork.transform.position.y);
-            //You can also do it like this to not have magic number "Camera.main.aspect * Camera.main.orthographicSize * 2f"
-            rbStork.transform.position = newPos;
+            //The position the stork should spawn
+            Vector2 newPos = new Vector2(rbStork.transform.position.x + screenWidth, rbStork.transform.position.y);
+            rbStork.transform.position = newPos; //Updates the storks position to
         }
-
-        
-  
-        //rbPanda.transform.position = new Vector3(Random.Range(0,10), -50, Random.Range(0,10)) * speed;
 
     }
 }

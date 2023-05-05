@@ -7,7 +7,7 @@ public class Bed_script : MonoBehaviour
     Rigidbody2D rb;
     float dx;
     float dy;
-   // bool IsPandaSpawned = false; //Check if the panda is there, so only one at a time
+    // bool IsPandaSpawned = false; //Check if the panda is there, so only one at a time
     private float min_x = -1.55f, max_x = 1.55f;
 
     [SerializeField] float moveSpeed = 10f;
