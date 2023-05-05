@@ -21,11 +21,11 @@ public class StackItSpawner : MonoBehaviour
     {
         tmp.text = score.ToString();
 
-        if (score == 5)
+        if (score == 10)
         {
             sky.SetActive(true);
         }
-        if (score == 10)
+        if (score == 20)
         {
             Timer.RestartGame();
         }
