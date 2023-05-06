@@ -1,11 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
-//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 //kilder:
 //https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/
@@ -26,7 +21,15 @@ public class Timer : MonoBehaviour
 
     static float minute = 60f; // Variable replacing MN.
 
-    static float increaseMoveSpeed = 100;
+    static float increaseMoveSpeed = 10;
+
+    static float decreaseTimer = 5;
+
+    static bool didFunction = false;
+
+    static float minTimerTillNextScene = 11f;
+
+    static float timerOriginal = 30f;
 
     private void Start()
     {
@@ -42,39 +45,45 @@ public class Timer : MonoBehaviour
        }
 
         DisplayTime();
-
-        CheckIfSceneIsMainMenu();
     }
 
     public static void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + nextInBuildIndex); // Replacement of MN.
         DataHolder.totalScore++;
+
+        if (didFunction == true && timerTillNextScene >= minTimerTillNextScene)
+        {
+            timerTillNextScene -= decreaseTimer;
+            timerStartAt -= decreaseTimer;
+
+            didFunction = false;
+        }
+        else
         timerTillNextScene = timerStartAt; // Replacement of MN.
     }
 
     public static void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+        
+        SensorController.moveSpeed = SensorController.startMoveSpeed;
+
+        timerStartAt = timerOriginal;
         timerTillNextScene = timerStartAt; // Replacement of MN.
+
+        didFunction = false;
     }
 
     public static void RestartGame()
     {
         SceneManager.LoadScene("Ambulance");
-        timerTillNextScene = timerStartAt; // Replacement of MN.
+        
+        // timerTillNextScene = timerStartAt; // Replacement of MN.
 
         SensorController.moveSpeed += increaseMoveSpeed;
-    }
 
-    private void CheckIfSceneIsMainMenu()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            DataHolder dataHolder = FindObjectOfType<DataHolder>();
-            
-            Destroy(dataHolder.gameObject);
-        }
+        didFunction = true;
     }
 
     void DisplayTime()

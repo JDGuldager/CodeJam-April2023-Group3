@@ -9,6 +9,7 @@ public class SensorController : MonoBehaviour
     float dy;
 
     public static float moveSpeed = 20f;
+    public static float startMoveSpeed = 20f;
 
     float yMin = -4.5f; // Variable replacing MN.
     float yMax = 4.5f; // Variable replacing MN.
