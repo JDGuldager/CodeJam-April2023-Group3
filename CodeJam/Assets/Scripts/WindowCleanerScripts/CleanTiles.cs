@@ -10,6 +10,7 @@ public class CleanTiles : MonoBehaviour
     {
         slider = GetComponent<SliderController>();
     }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("DirtyObject"))
@@ -19,5 +20,4 @@ public class CleanTiles : MonoBehaviour
             slider.CheckIfWinOrLose();
         }
     }
-
 }

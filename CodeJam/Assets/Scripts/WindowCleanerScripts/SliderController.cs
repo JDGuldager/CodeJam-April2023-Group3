@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class SliderController : MonoBehaviour
 {
     int progress;
+    int startProgress = 0; // Variable replacing Magic Number (MN).
+
+    [SerializeField]
+    int maxSliderValue = 212; // Variable replacing MN.
+    float timeOver = 0f; // Variable replacing MN.
+
     public Slider slider;
     public sceneChanger changeScene;
 
@@ -14,9 +20,11 @@ public class SliderController : MonoBehaviour
 
     public AudioClip blopsound;
 
+    float timeBetweenAnimationAndSound = 4; // Variable replacing MN.
+
     private void Start()
     {
-        progress = 0;
+        progress = startProgress; // Replacement of MN.
         slider.value = progress;
     }
 
@@ -34,7 +42,7 @@ public class SliderController : MonoBehaviour
         m_Animator.SetBool("m_Soap", true);
         m_Soap = true;
         SoundManager.instance.PlaySound(blopsound);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(timeBetweenAnimationAndSound); // Replacement of MN.
         m_Animator.SetBool("m_Soap", false);
         m_Soap = false;
     }
@@ -47,12 +55,12 @@ public class SliderController : MonoBehaviour
 
     public void CheckIfWinOrLose()
     {
-        if (slider.value == 212)
+        if (slider.value == maxSliderValue) // Replacement of MN. 
         {
             Timer.NextScene();
         }
 
-        if (Timer.timerTillNextScene <= 0f)
+        if (Timer.timerTillNextScene <= timeOver) // Replacement of MN.
         {
             Timer.GameOver();
         }

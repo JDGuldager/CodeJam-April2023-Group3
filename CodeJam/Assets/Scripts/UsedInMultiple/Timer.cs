@@ -18,45 +18,70 @@ public class Timer : MonoBehaviour
 
     public bool con = false;
 
+    float timeOver = 0f; // Variable replacing MN.
+
+    static int nextInBuildIndex = 1; // Variable replacing MN.
+
+    static float timerStartAt = 30f; // Variable replacing MN.
+
+    static float minute = 60f; // Variable replacing MN.
+
+    static float increaseMoveSpeed = 100;
+
     private void Start()
     {
         // Starts the timer automatically
         timerIsRunning = true;
-
     }
+
     void Update()
     {
-            if (timerTillNextScene > 0)
-            {
-                timerTillNextScene -= Time.deltaTime;
-            }
+       if (timerTillNextScene > timeOver) // Replacement of MN.
+       {
+           timerTillNextScene -= Time.deltaTime;
+       }
 
         DisplayTime();
+
+        CheckIfSceneIsMainMenu();
     }
 
     public static void NextScene()
     {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + nextInBuildIndex); // Replacement of MN.
         DataHolder.totalScore++;
-        timerTillNextScene = 30f;
+        timerTillNextScene = timerStartAt; // Replacement of MN.
     }
 
     public static void GameOver()
     {
         SceneManager.LoadScene("GameOver");
-        timerTillNextScene = 30f;
+        timerTillNextScene = timerStartAt; // Replacement of MN.
     }
 
     public static void RestartGame()
     {
         SceneManager.LoadScene("Ambulance");
-        timerTillNextScene = 30f;
+        timerTillNextScene = timerStartAt; // Replacement of MN.
+
+        SensorController.moveSpeed += increaseMoveSpeed;
     }
+
+    private void CheckIfSceneIsMainMenu()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            DataHolder dataHolder = FindObjectOfType<DataHolder>();
+            
+            Destroy(dataHolder.gameObject);
+        }
+    }
+
     void DisplayTime()
     {
-    float minutes = Mathf.FloorToInt(timerTillNextScene / 60);
-    float seconds = Mathf.FloorToInt(timerTillNextScene % 60);
-    timeLeft.text = string.Format("TID TILBAGE: {0:00}:{1:00}", minutes, seconds);
+        float minutes = Mathf.FloorToInt(timerTillNextScene / minute); // Replacement of MN.
+        float seconds = Mathf.FloorToInt(timerTillNextScene % minute); // Replacement of MN.
+        timeLeft.text = string.Format("TID TILBAGE: {0:00}:{1:00}", minutes, seconds);
     }
 
     }
