@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 134130048}
   - component: {fileID: 134130049}
+  - component: {fileID: 134130050}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Untagged
@@ -162,13 +163,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134130047}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cd0c24e540f87a4c8354d37a935e010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 8986950660024439801, guid: d48ef917e2f7de042b07e47188ecf1dd, type: 3}
   fireRate: 2
+  sound: {fileID: 8300000, guid: aa5efc14356da5b4c9071268fdadbe59, type: 3}
+--- !u!114 &134130050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134130047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e664457cc355043812aee363339e32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8986950660024439801, guid: d48ef917e2f7de042b07e47188ecf1dd, type: 3}
+  fireRate: 1
   sound: {fileID: 8300000, guid: aa5efc14356da5b4c9071268fdadbe59, type: 3}
 --- !u!1 &294952618
 GameObject:
@@ -664,6 +680,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &795244873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795244874}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795244874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795244873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.03, y: 5.2, z: 4.824389}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1246839480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -918,6 +965,7 @@ GameObject:
   - component: {fileID: 1781757283}
   - component: {fileID: 1781757285}
   - component: {fileID: 1781757284}
+  - component: {fileID: 1781757286}
   m_Layer: 0
   m_Name: Needle2
   m_TagString: Untagged
@@ -1027,6 +1075,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
+--- !u!114 &1781757286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781757280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bebb49c5504dd5445be606ab5f713c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &1838363252
 GameObject:
   m_ObjectHideFlags: 0

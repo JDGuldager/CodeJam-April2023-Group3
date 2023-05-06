@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4873265383116219816}
   - component: {fileID: -4003406558644758844}
   - component: {fileID: 400083183442891900}
+  - component: {fileID: -1084975380084698621}
   m_Layer: 0
   m_Name: Bacteria
   m_TagString: Bacteria
@@ -101,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.01
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -133,3 +134,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.32392, y: 5.2681494}
   m_EdgeRadius: 0
+--- !u!114 &-1084975380084698621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706794722630913880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791070fda5eb2a74b9c80c11c9a18322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BacteriaSpeed: 150
+  BacteriaMovementRange: 150
+  BacteriaSmoothMovement: 5
+  BacteriaYSpeed: 0.5
