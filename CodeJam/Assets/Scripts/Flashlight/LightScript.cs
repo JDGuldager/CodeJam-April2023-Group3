@@ -14,6 +14,7 @@ public class LightScript : MonoBehaviour
         VirusWinLose();
     }
 
+    // checks if the score is zero or the time has run out
     public void VirusWinLose()
     {
         if (ScoreScript.scoreValue == 0)
@@ -27,24 +28,29 @@ public class LightScript : MonoBehaviour
         }
     } 
 
+    // called when an objecter enters the trigger area
     public void OnTriggerEnter2D(Collider2D other)
     {
-
+        // checks if the object has the tag
         if (other.CompareTag("Virus"))
         {
-            //Make green
+            // makes the virus green
             other.GetComponent<SpriteRenderer>().sprite = greenVirusSprite;
             
 
-            //Change tag
+            // changes the tag
             other.tag = "GreenVirus";
+
+            // decreases the score by one
             ScoreScript.scoreValue--;
 
-            //Chnage sprite layer
+            // changes the sprite layer
             other.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
-            //Spawn new virus
+            // spawns a new virus
             randomSpawn.InstantiateObjectInsideCollider();
+
+            // plays an audioclip
             SoundManager.instance.PlaySound(virusSound);
         }
     }
