@@ -33,7 +33,7 @@ public class StackItBox : MonoBehaviour
         // Left or right spawn
         if (Random.Range(0, 2) > 0)
         {
-            moveSpeed *= -1.6f;
+            moveSpeed *= -moveSpeed;
         }
         // Create a reference to the box when it gets spawned
         StackItController.Instance.currentBox = this;
@@ -49,6 +49,8 @@ public class StackItBox : MonoBehaviour
         {
             Vector3 temp = transform.position;
             temp.x += moveSpeed * Time.deltaTime;
+            // What this if statement does is basically if the box
+            // hits a border which is min_x or max_x it turns around
             if (temp.x > max_x)
             {
                 moveSpeed *= -1f;
@@ -60,16 +62,6 @@ public class StackItBox : MonoBehaviour
             transform.position = temp;
         }
     }
-    void Landed()
-    {
-        if (gameOver) return;
-        ignoreCollision = true;
-        Invoke("IgnoreTriggerDelay", 2f);
-        // Call funtions from the Controller
-        StackItController.Instance.SpawnNewBox();
-        StackItController.Instance.MoveCamera();
-    }
-
     private void OnCollisionEnter2D(Collision2D target)
     {
         if (ignoreCollision == true) return;
@@ -93,8 +85,15 @@ public class StackItBox : MonoBehaviour
             
             target.gameObject.tag = "UsedBox";
         }
-
-
+    }
+    void Landed()
+    {
+        if (gameOver) return;
+        ignoreCollision = true;
+        Invoke("IgnoreTriggerDelay", 2f);
+        // Call funtions from the Controller
+        StackItController.Instance.SpawnNewBox();
+        StackItController.Instance.MoveCamera();
     }
 
     // Delay the ignore collision is the box simply touches the top box

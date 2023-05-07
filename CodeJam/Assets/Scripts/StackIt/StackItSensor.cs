@@ -7,12 +7,14 @@ public class StackItSensor : MonoBehaviour
     Rigidbody2D rb;
     float dx;
     float dy;
-    public float min_x = -1.55f, max_x = 1.55f;
-    [SerializeField]
-    float moveSpeed = 20f;
+
+    float min_x = -1.55f, max_x = 1.55f;
     float ADsteer;
-    [SerializeField]
-    float steerSpeed = 0.2f;
+
+    [SerializeField] float moveSpeed = 20f;
+    [SerializeField] float ADsteerSpeed = 0.2f;
+
+    public bool debugMode;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +25,12 @@ public class StackItSensor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ADSteer();
-        // SensorSteer();
+        if (debugMode)
+        {
+            ADSteer();
+        }
+        else
+         SensorSteer();
     }
 
     private void FixedUpdate()
@@ -43,17 +49,19 @@ public class StackItSensor : MonoBehaviour
     // This function is for debugging so I wont have to build to a phone
     void ADSteer()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            ADsteer = -steerSpeed;
+            ADsteer = -ADsteerSpeed;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            ADsteer = steerSpeed;
+            ADsteer = ADsteerSpeed;
         }
+        else
+            ADsteer = 0;
+
         dx = ADsteer * moveSpeed;
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, min_x, max_x), transform.position.y);
-
         dy = ADsteer * moveSpeed;
     }
 }
