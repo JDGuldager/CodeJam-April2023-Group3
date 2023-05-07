@@ -9,7 +9,7 @@ Members:
 - Alina
 - Simon Axelsen
 
-Scripts are found in assets > Scripts
+Scripts are found in CodeJam > Assets > Scripts
 
 - AmbulanceScripts - Laurids
 - Flashlight - Alina 
