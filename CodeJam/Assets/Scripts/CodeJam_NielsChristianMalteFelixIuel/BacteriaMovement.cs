@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Sources:
+//https://www.youtube.com/watch?v=FdNervYWmcE&ab_channel=PekkeDev,
+
 public class BacteriaMovement : MonoBehaviour
 {
     [SerializeField]
