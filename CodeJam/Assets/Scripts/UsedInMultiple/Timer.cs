@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
     public static void GameOver()
     {
         SceneManager.LoadScene("GameOver");
-        timerTillNextScene = 30f;
+        //timerTillNextScene = 30f;
     }
 
     public static void RestartGame()

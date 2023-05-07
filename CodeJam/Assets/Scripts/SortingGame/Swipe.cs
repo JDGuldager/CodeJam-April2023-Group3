@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 
 public class Swipe : MonoBehaviour
 {
@@ -17,6 +19,9 @@ public class Swipe : MonoBehaviour
     Vector2 patientPosition;
     public GameObject leftSide, rightSide;
     public float speed = 10f;
+    public TextMeshProUGUI countingDown;    //Text for time
+    public Slider countdownBar; //Slider of countdown bar
+    public float maxDuration = 10f;
 
     public AudioClip happyRed;
     public AudioClip dissapointedRed;
@@ -24,6 +29,9 @@ public class Swipe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Timer.timerTillNextScene = maxDuration; //Time is set to 10
+        countdownBar.maxValue = Timer.timerTillNextScene; //Make sure maxvalue is 10
+
         // Set the first patient as the current patient
         firstPatient = patients[currentPatientIndex];
         rb = GetComponent<Rigidbody2D>();
@@ -35,8 +43,12 @@ public class Swipe : MonoBehaviour
         SwipeMechanism();
         if(Timer.timerTillNextScene <= 0f)
 		{
+            SoundManager.instance.PlaySound(dissapointedRed);
             Timer.GameOver();
 		}
+
+        countdownBar.value = Timer.timerTillNextScene; //Changes value to duration
+        countingDown.text = Mathf.Round(Timer.timerTillNextScene).ToString();   //From Time to text        
     }
 
     IEnumerator MovePatient(Vector3 start, Vector3 target)
