@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Spawns Cloud, and finds their spawn position and what direction they need to swim.
+ * Spawns Cloud, and finds their spawn position and what direction they need to move.
  */
 
 public class CloudSpawner : MonoBehaviour

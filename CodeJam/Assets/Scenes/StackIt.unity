@@ -156,6 +156,9 @@ MonoBehaviour:
   currentBox: {fileID: 0}
   cameraScript: {fileID: 1452977867}
   timerScript: {fileID: 0}
+  spawnRateBox: 0.5
+  whenToMoveCam: 5
+  howMuchToMoveCam: 3
 --- !u!4 &396862204
 Transform:
   m_ObjectHideFlags: 0
@@ -1383,6 +1386,7 @@ MonoBehaviour:
   tmp: {fileID: 1631366450}
   sky: {fileID: 1080323781}
   stackSound: {fileID: 8300000, guid: 94da3da7ff3ad4480af530e349a7370e, type: 3}
+  winConditon: 20
 --- !u!1 &1613186083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,7 +1679,7 @@ GameObject:
   - component: {fileID: 1695815920}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Platform
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1722,7 +1726,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9137255, g: 0.3137255, b: 0.2627451, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.13491154, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1811,6 +1815,7 @@ MonoBehaviour:
   min_x: -1.55
   max_x: 1.55
   moveSpeed: 15
+  steerSpeed: 0.2
 --- !u!1001 &1757831680
 PrefabInstance:
   m_ObjectHideFlags: 0

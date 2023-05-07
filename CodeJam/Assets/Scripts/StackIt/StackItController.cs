@@ -11,37 +11,48 @@ public class StackItController : MonoBehaviour
     public CameraFollow cameraScript;
     private int moveCount;
     public Timer timerScript;
+
+    [SerializeField]
+    private float spawnRateBox = .5f;
+    [SerializeField]
+    private int whenToMoveCam = 5;
+    [SerializeField]
+    private int howMuchToMoveCam = 3;
+
     private void Awake()
     {
-        // watch awesome tuts singleton tutorial
+        // If the instance is not pointing to an existing place in the memory it should point to 'this'
+        // Meaning the StackItController
         if (Instance == null) Instance = this;
     }
+
     private void Start()
     {
         spawnerScript.SpawnBox();
     }
 
-
- 
-    public void MoveCamera()
-    {
-        moveCount++;
-        if(moveCount == 5)
-        {
-            moveCount = 0;
-           cameraScript.targetPos.y += 3f;
-        }
-    }
     public void SpawnNewBox()
     {
-        Invoke("NewBox", .5f);
+        Invoke("NewBox", spawnRateBox);
     }
     void NewBox()
     {
         spawnerScript.SpawnBox();
     }
-    // Might need to remove this::
-    public void RestartGame()
+
+    public void MoveCamera()
+    {
+        moveCount++;
+        if(moveCount == whenToMoveCam)
+        {
+            // Reset counter
+            moveCount = 0;
+
+           cameraScript.targetPos.y += howMuchToMoveCam;
+        }
+    }
+
+    public void GameOver()
     {
       Timer.GameOver();
     }

@@ -10,10 +10,12 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
+        // Start position of camera is as I put it in the inspector
         targetPos = transform.position;
     }
     void Update()
     {
+        // Moves the camera towards targetPos using Lerp
         transform.position = Vector3.Lerp(transform.position,targetPos, smoothMove * Time.deltaTime);
     }
 }
