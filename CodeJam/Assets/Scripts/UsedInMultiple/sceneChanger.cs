@@ -8,6 +8,5 @@ public class sceneChanger : MonoBehaviour
     public void LoadAScene(int sceneNum)
     {
         SceneManager.LoadScene(sceneNum);
-        Timer.timerTillNextScene = 30f;
     }
 }
