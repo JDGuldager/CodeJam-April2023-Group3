@@ -10,7 +10,8 @@ public class Stork_script : MonoBehaviour
 {
     [SerializeField] float speed; //The speed
     [SerializeField] public Rigidbody2D rbStork;
-    [SerializeField] float respawn; //The upper limit x location for the respawn
+    [SerializeField] float respawn; 
+    //The upper limit x location for the respawn
     public GameObject pandaPrefab;
     public Panda_script pandaScript;
 
