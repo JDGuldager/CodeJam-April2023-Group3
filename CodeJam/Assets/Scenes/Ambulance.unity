@@ -1035,7 +1035,7 @@ GameObject:
   - component: {fileID: 786844606}
   - component: {fileID: 786844605}
   m_Layer: 0
-  m_Name: Venstre
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1132,6 +1132,9 @@ MonoBehaviour:
   - {fileID: 2057042732098744197, guid: 2d90fe25dd48fa64c8f10b512bb6dbdf, type: 3}
   - {fileID: 7680278633206691385, guid: 22503715b3b202a4ab8972e295690a1a, type: 3}
   repeatCounter: 0
+  repeatMax: 20
+  spawnStartTimer: 3
+  repeatRate: 1
 --- !u!1 &1298638312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,7 +1304,7 @@ GameObject:
   - component: {fileID: 1336711833}
   - component: {fileID: 1336711832}
   m_Layer: 0
-  m_Name: "H\xF8jre"
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1746,7 +1749,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 885909891
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 2f23008ea8ac76c46bae1781a2fcce48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1905,6 +1908,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2072173716582271358, guid: 3b51e8b2f82e3d64f8c132b871e910b8, type: 3}
     - target: {fileID: 2072173716582271357, guid: 3b51e8b2f82e3d64f8c132b871e910b8, type: 3}
+      propertyPath: roadPrefab
+      value: 
+      objectReference: {fileID: 2072173716582271358, guid: 3b51e8b2f82e3d64f8c132b871e910b8, type: 3}
+    - target: {fileID: 2072173716582271357, guid: 3b51e8b2f82e3d64f8c132b871e910b8, type: 3}
+      propertyPath: scrollSpeed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072173716582271357, guid: 3b51e8b2f82e3d64f8c132b871e910b8, type: 3}
       propertyPath: obstacles.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -1927,6 +1938,10 @@ PrefabInstance:
     - target: {fileID: 2072173716582271358, guid: 3b51e8b2f82e3d64f8c132b871e910b8, type: 3}
       propertyPath: m_Name
       value: Road (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072173716582271358, guid: 3b51e8b2f82e3d64f8c132b871e910b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2072173717664605004, guid: 3b51e8b2f82e3d64f8c132b871e910b8, type: 3}
       propertyPath: m_SortingLayer
@@ -1986,6 +2001,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8752499092947569502, guid: 665ad4694e165174697fbc3b5f5f2e06, type: 3}
     - target: {fileID: 8752499092947569499, guid: 665ad4694e165174697fbc3b5f5f2e06, type: 3}
+      propertyPath: roadPrefab
+      value: 
+      objectReference: {fileID: 8752499092947569502, guid: 665ad4694e165174697fbc3b5f5f2e06, type: 3}
+    - target: {fileID: 8752499092947569499, guid: 665ad4694e165174697fbc3b5f5f2e06, type: 3}
+      propertyPath: scrollSpeed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752499092947569499, guid: 665ad4694e165174697fbc3b5f5f2e06, type: 3}
       propertyPath: obstacles.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -2008,6 +2031,10 @@ PrefabInstance:
     - target: {fileID: 8752499092947569502, guid: 665ad4694e165174697fbc3b5f5f2e06, type: 3}
       propertyPath: m_Name
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752499092947569502, guid: 665ad4694e165174697fbc3b5f5f2e06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8752499092947569509, guid: 665ad4694e165174697fbc3b5f5f2e06, type: 3}
       propertyPath: m_RootOrder

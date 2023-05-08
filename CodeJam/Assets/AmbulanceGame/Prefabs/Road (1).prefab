@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66e14e0cab57aa49a9510ad5368ff38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoadPrefab: {fileID: 2072173716582271358}
+  roadPrefab: {fileID: 2072173716582271358}
   collider: {fileID: 0}
   rb: {fileID: 0}
   scrollSpeed: -10
