@@ -40,7 +40,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (repeatCounter <= repeatMax)
         {
             GameObject spawnedItem = Instantiate(obstaclePrefabs[Random.Range(0, 3)]);
-            spawnedItem.transform.position = new Vector3(-1,obsYPos,0);
+            spawnedItem.transform.position = new Vector3(-1,obsYPos,0); //Change to xAxis to -1 for test run
             repeatCounter++;
         }
         Debug.Log(repeatCounter);
